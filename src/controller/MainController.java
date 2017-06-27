@@ -16,8 +16,15 @@ public class MainController {
 	
 	@RequestMapping("index.do")
 	public String index(HttpSession session, Model model) throws Exception {
-		System.out.println("ㅁㄻㄹ");
+		System.out.println("나와라 메인페이지여 ");
 		
 		return "main.index";
+	}
+	
+	@RequestMapping("mmso.do")
+	public String mmso(Model model)throws Exception{
+		System.out.println("mmso란?");
+		
+		return "home.mmso.mmso";
 	}
 }
