@@ -27,4 +27,25 @@ public class MainController {
 		
 		return "home.mmso.mmso";
 	}
+	
+	@RequestMapping("introduction.do")
+	public String introduction(Model model)throws Exception{
+		System.out.println("소개?");
+		
+		return "home.mmso.introduction";
+	}
+	
+	@RequestMapping("effect.do")
+	public String effect(Model model)throws Exception{
+		System.out.println("효과");
+		
+		return "home.mmso.effect";
+	}
+	
+	@RequestMapping("goal.do")
+	public String goal(Model model)throws Exception{
+		System.out.println("목표");
+		
+		return "home.mmso.goal";
+	}
 }

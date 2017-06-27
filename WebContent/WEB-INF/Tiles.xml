@@ -12,11 +12,14 @@
 	</definition>
 	
 		<definition name="home.*.*" template="/WEB-INF/views/home/{1}/inc/layout.jsp">
+		<put-attribute name="title" value="멘사 마인드 스포츠 올림피아드" />
+		<put-attribute name="css" value="css/home/{2}.css" />
 		<put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
 		<put-attribute name="aside" value="/WEB-INF/views/home/{1}/inc/aside.jsp" />
 		<put-attribute name="visual" value="/WEB-INF/views/home/inc/visual.jsp" />
 		<put-attribute name="content" value="/WEB-INF/views/home/{1}/{2}.jsp" />
+		<put-attribute name="js" value="js/home/{1}/{2}.js" />
 	</definition>
 </tiles-definitions>      
        

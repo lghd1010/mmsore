@@ -17,7 +17,7 @@
 	<div class="container" style="padding-left: 0px; padding-right: 0px;">
 		<div id='cssmenu' style="z-index: 10; font-size: 15px">
 			<ul>
-				<li class='active'><a href='main.do'>Home</a></li>
+				<li class='active'><a href='index.do'>Home</a></li>
 				<li><a href='introduction.do'>주관사소개</a>
 					<ul>
 						<li><a href='introduction.do'>주관사소개</a>
