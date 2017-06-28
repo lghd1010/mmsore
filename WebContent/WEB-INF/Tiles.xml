@@ -11,7 +11,7 @@
 		<put-attribute name="js" value="js/{1}.js" />
 	</definition>
 	
-		<definition name="home.*.*" template="/WEB-INF/views/home/{1}/inc/layout.jsp">
+	<definition name="home.*.*" template="/WEB-INF/views/home/{1}/inc/layout.jsp">
 		<put-attribute name="title" value="멘사 마인드 스포츠 올림피아드" />
 		<put-attribute name="css" value="css/home/{2}.css" />
 		<put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />

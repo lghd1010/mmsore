@@ -48,4 +48,25 @@ public class MainController {
 		
 		return "home.mmso.goal";
 	}
+	
+	@RequestMapping("map.do")
+	public String map(Model model)throws Exception{
+		System.out.println("지도");
+		
+		return "home.mmso.map";
+	}
+	
+	@RequestMapping("refereewinner.do")
+	public String refereewinner(Model model)throws Exception{
+		System.out.println("심판우수");
+		
+		return "home.mmso.refereewinner";
+	}
+	
+	@RequestMapping("winnerK.do")
+	public String winnerK(Model model)throws Exception{
+		System.out.println("우승자");
+		
+		return "home.mmso.winnerK";
+	}
 }
