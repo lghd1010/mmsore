@@ -21,5 +21,6 @@
 		<put-attribute name="content" value="/WEB-INF/views/home/{1}/{2}.jsp" />
 		<put-attribute name="js" value="js/home/{1}/{2}.js" />
 	</definition>
+	
 </tiles-definitions>      
        

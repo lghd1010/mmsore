@@ -37,7 +37,7 @@
 
 				<li><a href='noticeList.do'>국내 MMSO</a>
 					<ul>
-						<li><a href='noticeList.do'>공지사항</a>
+						<li><a href='noticelist.do'>공지사항</a>
 						<li><a href='javascript:btn_board()'>게시판</a>
 						<li><a href='photoList.do'>사진첩</a> 
 						<%--  <c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}">

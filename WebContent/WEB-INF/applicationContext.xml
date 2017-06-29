@@ -13,7 +13,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 	<bean id="driverManagerDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/tovtory"></property>
+		<property name="url" value="jdbc:mysql://112.175.85.223:3306/tovtory"></property>
 		<property name="username" value="tovtory"></property>
 		<property name="password" value="root5688101!"></property>
 	</bean>

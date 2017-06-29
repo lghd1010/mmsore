@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.NoticeDAO">
+
+	<select id="getnoticeCount" resultType="Integer">
+		select count(*) cnt 
+		from mmso_notice 
+		where ${param1} like '%${param2}%' and active = 0
+	</select>
+	
+	<select id="noticelist" resultType="DTO.NoticeDTO">
+		select A.* 
+		from (
+			    SELECT
+			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
+			        mmso_notice.* 
+			    FROM
+			        mmso_notice,
+			       (SELECT @ROWNUM := 0) R
+					where ${param2} like '%${param3}' and active = 0
+			) A
+		order by boardno desc
+		LIMIT ${param1}, ${param4}
+	</select>
+	
+	<select id="noticedetail" resultType="DTO.NoticeDTO">
+		select * from mmso_notice where boardno = #{boardno}
+	</select>
+	
+	<insert id="noticeInsert">
+		insert into mmso_notice(title, content, regdate, countno, active, name, critical)
+		value(#{title}, #{content}, sysdate(), 0, 0, '관리자', #{critical})
+	</insert>
+	
+	<update id="noticeCount">
+		update mmso_notice
+			set
+			countno = countno+1
+		where boardno = #{boardno}
+	</update>
+	
+</mapper>
