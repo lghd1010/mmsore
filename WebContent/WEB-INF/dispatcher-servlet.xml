@@ -31,7 +31,6 @@ http://www.springframework.org/schema/context/spring-context.xsd
 	<!-- Tiles END -->
 
 	<!-- ajax -->
-
 	<bean id="jsonView" class="net.sf.json.spring.web.servlet.view.JsonView" />
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="1"></property>

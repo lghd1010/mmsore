@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="DAO.member">
+<mapper namespace="DAO.MemberDAO">
+
+	<select id="getMcnameAjax" resultType="DTO.EduinfoDTO">
+		SELECT *
+		FROM eduinfo
+    	WHERE e_mensa_no = 1
+    	AND e_name LIKE #{m_cname}
+	</select>
+	
+	<insert id="memberinsert">
+		insert into mmso_member2(m_id, m_pass, name, m_email, m_birthday, m_gender, m_cname, m_number, m_regdate, active, m_type, m_gisa, m_schoolname, m_class, m_no, b_idx)
+		values(#{m_id}, #{m_pass}, #{name}, #{m_email}, #{m_birthday}, #{m_gender}, #{m_cname}, #{m_number}, sysdate(),0, 1, #{m_gisa}, #{m_schoolname}, #{m_class}, #{m_no}, #{b_idx})
+	</insert>
 	
 </mapper>

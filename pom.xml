@@ -195,6 +195,7 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>3.2.4.RELEASE</version>
 		</dependency>
+
 		<!-- ajax -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>

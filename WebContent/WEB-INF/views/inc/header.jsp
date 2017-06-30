@@ -14,6 +14,9 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
+<!-- ajaxSubmit 처리를 위한 링크 -->
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
 	<div class="container" style="padding-left: 0px; padding-right: 0px;">
 		<div id='cssmenu' style="z-index: 10; font-size: 15px">
 			<ul>
@@ -99,7 +102,18 @@
 						</li>
 					</ul>
 				</li>
+				
 				<%-- </c:if> --%>
+				<div align="right">
+					<a type="button" href="#" class="btn btn-warning"
+						id="myBtn" style="margin-right: 10px; margin-top: 10px"> <span
+						class="glyphicon glyphicon-log-in"></span>로그인
+					</a>
+					<a type="button" href="joinform.do" class="btn btn-warning"
+						id="Register" style="margin-right: 10px; margin-top: 10px">
+						<span class="glyphicon glyphicon-user"></span> 회원가입
+					</a>
+				</div>
 			</ul>
 		</div>
 	</div>
