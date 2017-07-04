@@ -74,7 +74,7 @@
 						</ul>
 					</li>
 				</c:if> --%>
-				<%-- <c:if test="${memberInfo.m_type==5}"> --%>
+				<c:if test="${memberInfo.m_type==5}">
 				<li><a href='#'>관리자메뉴</a>
 					<ul>
 						<li class='has-sub'><a href='adminmemberinfolist.do'>메인관리</a>
@@ -102,17 +102,48 @@
 						</li>
 					</ul>
 				</li>
-				
-				<%-- </c:if> --%>
+				</c:if>
 				<div align="right">
-					<a type="button" href="#" class="btn btn-warning"
-						id="myBtn" style="margin-right: 10px; margin-top: 10px"> <span
-						class="glyphicon glyphicon-log-in"></span>로그인
-					</a>
-					<a type="button" href="joinform.do" class="btn btn-warning"
-						id="Register" style="margin-right: 10px; margin-top: 10px">
-						<span class="glyphicon glyphicon-user"></span> 회원가입
-					</a>
+					<c:choose>
+						<c:when test="${empty memberInfo}">
+
+							<a type="button" href="login.do" class="btn btn-warning"
+								id="myBtn" style="margin-right: 10px; margin-top: 10px"> <span
+								class="glyphicon glyphicon-log-in"></span>로그인
+							</a>
+							<a type="button" href="joinform.do" class="btn btn-warning"
+								id="Register" style="margin-right: 10px; margin-top: 10px">
+								<span class="glyphicon glyphicon-user"></span> 회원가입
+							</a>
+						</c:when>
+						<c:otherwise>
+							<c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}">
+							<a type="button" href="roundck.do" class="btn btn-warning" style="margin-right: 10px; margin-top: 10px">본선참가확인</a>
+							<a type="button" href="entercomlist.do?memberno=${memberInfo.memberno }" class="btn btn-warning" style="margin-right: 10px; margin-top: 10px"><span class="glyphicon glyphicon-user"></span>대회신청</a>
+							</c:if>
+							<a type="button" href="memberdetail.do?mno=${memberInfo.memberno }" class="btn btn-warning" id="myBtn" style="margin-right: 10px; margin-top: 10px"> 
+							<span class="glyphicon glyphicon-user"></span>
+							 ${memberInfo.name } 
+								<c:if test="${memberInfo.m_type==1}">
+									<c:out value="일반회원" />
+								</c:if> <c:if test="${memberInfo.m_type==2}">
+									<c:out value=" " />
+								</c:if> <c:if test="${memberInfo.m_type==3}">
+									<c:out value="교육원장님" />
+								</c:if> <c:if test="${memberInfo.m_type==4}">
+									<c:out value="지사장님" />
+								</c:if> <c:if test="${memberInfo.m_type==5}">
+									<c:out value="관리자회원" />
+								</c:if>
+							</a>
+							<!-- <li class="last"><a href="logout.do">로그아웃</a></li> -->
+							<a type="button" href="logout.do" class="btn btn-warning"
+								id="myBtn" style="margin-right: 10px; margin-top: 10px"> <span
+								class="glyphicon glyphicon-log-in"></span>로그아웃
+							</a>
+
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</ul>
 		</div>

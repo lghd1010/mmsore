@@ -5,7 +5,6 @@ $(function() {
 function initialize () {
 	datePicker();
 	joinAutoComplete();
-	autoHypenPhone();
 }
 
 function datePicker () {
@@ -111,6 +110,6 @@ function autoCompleteCheck () {
 		$('#m_cname_label').text("인증");
 	} else {
 		$('#m_cname_label').attr("style", "color:red");
-		$('#m_cname_label').text("없음");
+		$('#m_cname_label').text("없는교육원 이름입니다.");
 	}
 }

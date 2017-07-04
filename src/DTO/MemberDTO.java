@@ -15,7 +15,7 @@ public class MemberDTO {
 	private int active;
 	private int m_type;
 	private String m_gisa;
-	private String schoolname;
+	private String m_schoolname;
 	private int m_class;
 	private int m_no;
 	private int b_idx;
@@ -99,12 +99,6 @@ public class MemberDTO {
 	public void setM_gisa(String m_gisa) {
 		this.m_gisa = m_gisa;
 	}
-	public String getSchoolname() {
-		return schoolname;
-	}
-	public void setSchoolname(String schoolname) {
-		this.schoolname = schoolname;
-	}
 	public int getM_class() {
 		return m_class;
 	}
@@ -122,5 +116,11 @@ public class MemberDTO {
 	}
 	public void setB_idx(int b_idx) {
 		this.b_idx = b_idx;
+	}
+	public String getM_schoolname() {
+		return m_schoolname;
+	}
+	public void setM_schoolname(String m_schoolname) {
+		this.m_schoolname = m_schoolname;
 	}
 }

@@ -78,24 +78,31 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value="join.do", method=RequestMethod.POST)
-	public void join(MemberDTO memberDTO, HttpServletResponse response)throws Exception{
+	@RequestMapping(value="joinform.do", method=RequestMethod.POST)
+	public String join(MemberDTO memberDTO, HttpServletResponse response)throws Exception{
 		System.out.println("회원가입 실행");
 		
+		//경고문 띄우기 한글
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		String go = "";
+		
+		System.out.println(memberDTO.toString());
 		MemberDAO memberDAO = sqlSession.getMapper(MemberDAO.class);
 		
-		int result = memberDAO.memberinsert(memberDTO);
 		
-		if(result != 0){
-			System.out.println("회원가입 완료");
-			out.print(
-					"<script type='text/javascript'>alert('축하드립니다. 회원가입이 완료 되었습니다. 회원가입 축하글을 메일로 전송했습니다!!'); location.replace('main.do');</script>");
-		} else {
-			System.out.println("회원가입 실패");
-			out.print(
-					"<script type='text/javascript'>alert('회원 가입을  실패하였습니다.'); location.replace('main.do');</script>");
+		//DB에 정보가 없다면 회원 등록
+		if(memberDAO.getMember(memberDTO)==null){
+			int row = memberDAO.memberinsert(memberDTO);
+			System.out.println(row);
+			out.print("<script type='text/javascript'>alert('회원가입 성공');location.replace('index.do');</script>");
+			go="redirect:index.do";
+		}else{
+			out.print("<script type='text/javascript'>alert('이미 존재하는 아이디입니다.');location.replace('joinform.do');</script>");
+			go="join.join";
 		}
 		out.close();
+		return go;
 		
 	}
 	

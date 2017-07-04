@@ -9,9 +9,16 @@
     	AND e_name LIKE #{m_cname}
 	</select>
 	
-	<insert id="memberinsert">
-		insert into mmso_member2(m_id, m_pass, name, m_email, m_birthday, m_gender, m_cname, m_number, m_regdate, active, m_type, m_gisa, m_schoolname, m_class, m_no, b_idx)
-		values(#{m_id}, #{m_pass}, #{name}, #{m_email}, #{m_birthday}, #{m_gender}, #{m_cname}, #{m_number}, sysdate(),0, 1, #{m_gisa}, #{m_schoolname}, #{m_class}, #{m_no}, #{b_idx})
+	<!-- 회원 가입 전 가입 확인 / 로그인 -->
+	<select id="getMember" parameterType="DTO.MemberDTO" resultType="DTO.MemberDTO">
+		SELECT *
+		FROM mmso_member2
+		WHERE m_id=#{m_id}
+	</select>
+	
+	<insert id="memberinsert" parameterType="DTO.MemberDTO">
+		insert into mmso_member2(m_id, m_pass, name, m_email, m_birthday, m_gender, m_cname, m_number, m_regdate, active, m_type,  m_schoolname, m_class, m_no, b_idx)
+		values(#{m_id}, #{m_pass}, #{name}, #{m_email}, #{m_birthday}, #{m_gender}, #{m_cname}, #{m_number}, sysdate(),0, 1, #{m_schoolname}, #{m_class}, #{m_no}, #{b_idx})
 	</insert>
 	
 </mapper>
