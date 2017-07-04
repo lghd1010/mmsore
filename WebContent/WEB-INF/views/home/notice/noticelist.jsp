@@ -34,7 +34,9 @@
 				<c:set var="pager" value="${pager.toString()}" />
 				<ul class="pagination">${pager}</ul>
 			</div>
-			<div class="btn" align="right">
+			<c:if test="${memberInfo.m_type == 5 }">
+			<div class="btn" align="left">
 				<a href="noticewritefram.do" class="btn btn-info">글 쓰기</a>
 			</div>
+			</c:if>
 	</div>

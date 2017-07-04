@@ -18,6 +18,6 @@
 			</table>
 		</div>
 		<div align="center">
-			
+			<input class="btn btn-default" onclick="history.go(-1);" type="button" value="뒤로가기">
 		</div>
 	</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="container" style="padding: 0px">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
     	<!-- Indicators -->
@@ -42,7 +44,20 @@
 						</div>
 						<!-- /.panel-heading -->
 						<table class="table table-hover">
-							
+							<c:forEach items="${hnoticelist }" var="hnoticelist" begin="0" end="4">
+								<c:choose>
+								  	<c:when test="${fn:length(hnoticelist.title) > 30}">
+										<tr align="left">
+											<td><a href="noticedetail.do?boardno=${hnoticelist.boardno }"><c:out value="${fn:substring(hnoticelist.title,0,29)}"/>....</a></td>
+										</tr>
+									</c:when>
+									<c:otherwise>
+									<tr align="left">
+											<td><a href="noticedetail.do?boardno=${hnoticelist.boardno }"><c:out value="${hnoticelist.title }"/></a></td>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>	
 						</table>
 					</div>
 					<!-- 옆 -->

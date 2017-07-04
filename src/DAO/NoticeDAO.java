@@ -17,5 +17,7 @@ public interface NoticeDAO {
 
 	public int noticeInsert(NoticeDTO noticeDTO)throws Exception;
 
+	public List<NoticeDTO> hnoticelist()throws Exception;
+
 }
  

@@ -23,6 +23,12 @@
 		LIMIT ${param1}, ${param4}
 	</select>
 	
+	<select id="hnoticelist" resultType="DTO.NoticeDTO">
+		select * from mmso_notice
+		where active = 0
+		order by boardno desc
+	</select>
+	
 	<select id="noticedetail" resultType="DTO.NoticeDTO">
 		select * from mmso_notice where boardno = #{boardno}
 	</select>

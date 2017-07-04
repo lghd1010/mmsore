@@ -41,8 +41,8 @@
 				<li><a href='noticeList.do'>국내 MMSO</a>
 					<ul>
 						<li><a href='noticelist.do'>공지사항</a>
-						<li><a href='javascript:btn_board()'>게시판</a>
-						<li><a href='photoList.do'>사진첩</a> 
+						<!-- <li><a href='javascript:btn_board()'>게시판</a> -->
+						<li><a href='photolist.do'>사진첩</a> 
 						<%--  <c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}">
 						<li class='has-sub'><a href='entercomlist.do?memberno=${memberInfo.memberno }'>참가확인/대회 선택창</a>
 							<ul>
