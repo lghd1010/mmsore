@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO.EnterDAO">
+	<select id="getenterCount" resultType="Integer">
+		select count(*) cnt 
+		from mmso_enter_test 
+		where ${param1} like '%${param2}%' and ent_active = 0
+	</select>
+	
+	<select id="admin1roundlist" resultType="DTO.EnterDTO">
+		select A.* 
+		from (
+			    SELECT
+			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
+			        mmso_enter_test.* 
+			    FROM
+			        mmso_enter_test,
+			       (SELECT @ROWNUM := 0) R
+					where ${param2} like '%${param3}' and ent_active = 0
+			) A
+		order by ent_idx desc
+		LIMIT ${param1}, ${param4}
+	</select>
+</mapper>

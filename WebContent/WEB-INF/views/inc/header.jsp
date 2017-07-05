@@ -75,18 +75,17 @@
 				<c:if test="${memberInfo.m_type==5}">
 				<li><a href='#'>관리자메뉴</a>
 					<ul>
-						<li class='has-sub'><a href='adminmemberlist.do'>메인관리</a>
+						<li class='has-sub'><a href='adminmemberlist.do'>회원관리</a>
 							<ul>
 								<li><a href='adminmemberlist.do'>회원목록</a></li>
 								<li><a href='admincamplist.do'>캠프참가자확인</a></li>
 							</ul>
 						</li>
-						<li class='has-sub'><a href='#'>사이트관리</a>
+						<li class='has-sub'><a href='#'>대회관리</a>
 							<ul>
-								<li><a href='adminentertestlist.do?mcn_no=15'>참가자 관리 페이지</a></li>
+								<li><a href='admin1roundlist.do'>예선참가자 관리 페이지</a></li>
 								<li><a href='round2list.do?mcn_no=15'>본선 참가자 관리</a></li>
 								<li><a href='#'>결승 참가자 관리</a></li>
-								<li><a href='adminrefereeList.do'>심판 관리</a></li>
 								<li><a href='admineventlist.do'>종목 교구</a></li>
 								<li><a href='adminaddlist.do'>대회관리</a></li>
 							</ul>
