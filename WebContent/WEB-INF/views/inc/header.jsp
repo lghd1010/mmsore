@@ -43,12 +43,10 @@
 						<li><a href='noticelist.do'>공지사항</a>
 						<!-- <li><a href='javascript:btn_board()'>게시판</a> -->
 						<li><a href='photolist.do'>사진첩</a> 
-						<%--  <c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}">
-						<li class='has-sub'><a href='entercomlist.do?memberno=${memberInfo.memberno }'>참가확인/대회 선택창</a>
-							<ul>
-								<li><a href='entercomlist.do?memberno=${memberInfo.memberno }'>참가확인/대회 선택창</a></li>
-							</ul></li>
-						</c:if> --%>
+						<%-- <c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}"> --%>
+						<li><a href='enterlist.do'>대회 신청하기</a>
+						</li>
+						<%-- </c:if> --%>
 					</ul></li>
 			<%-- <c:if test="${memberInfo.m_type==3}">
 					<li class='has-sub'><a href='edustudentlist.do?mcn_no=15&ent_cname=${memberInfo.m_cname }'>교육원관리</a>
@@ -77,9 +75,9 @@
 				<c:if test="${memberInfo.m_type==5}">
 				<li><a href='#'>관리자메뉴</a>
 					<ul>
-						<li class='has-sub'><a href='adminmemberinfolist.do'>메인관리</a>
+						<li class='has-sub'><a href='adminmemberlist.do'>메인관리</a>
 							<ul>
-								<li><a href='adminmemberinfolist.do'>회원목록</a></li>
+								<li><a href='adminmemberlist.do'>회원목록</a></li>
 								<li><a href='admincamplist.do'>캠프참가자확인</a></li>
 							</ul>
 						</li>

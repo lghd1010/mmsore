@@ -21,4 +21,29 @@
 		values(#{m_id}, #{m_pass}, #{name}, #{m_email}, #{m_birthday}, #{m_gender}, #{m_cname}, #{m_number}, sysdate(),0, 1, #{m_schoolname}, #{m_class}, #{m_no}, #{b_idx})
 	</insert>
 	
+	
+	
+	
+	<!-- 관리자 단 쿼리 -->
+	<select id="getmemberCount" resultType="Integer">
+		select count(*) cnt 
+		from mmso_member2 
+		where ${param1} like '%${param2}%' and active = 0
+	</select>
+	
+	<select id="adminmemberlist"  resultType="DTO.MemberDTO">
+		select A.* 
+		from (
+			    SELECT
+			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
+			        mmso_member2.* 
+			    FROM
+			        mmso_member2,
+			       (SELECT @ROWNUM := 0) R
+					where ${param2} like '%${param3}' and active = 0
+			) A
+		order by memberno desc
+		LIMIT ${param1}, ${param4}
+	</select>
+	
 </mapper>

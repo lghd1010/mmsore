@@ -15,4 +15,8 @@ public interface MemberDAO {
 
 	public MemberDTO getMember(MemberDTO memberDTO)throws Exception;
 
+	public int getmemberCount(String field, String query)throws Exception;
+
+	public List<MemberDTO> adminmemberlist(int start, String field, String query, int pageSize)throws Exception;
+
 }

@@ -19,7 +19,7 @@ public class MemberDTO {
 	private int m_class;
 	private int m_no;
 	private int b_idx;
-	
+	private int ROWNUM;
 	
 	public int getMemberno() {
 		return memberno;
@@ -123,4 +123,11 @@ public class MemberDTO {
 	public void setM_schoolname(String m_schoolname) {
 		this.m_schoolname = m_schoolname;
 	}
+	public int getROWNUM() {
+		return ROWNUM;
+	}
+	public void setROWNUM(int rOWNUM) {
+		ROWNUM = rOWNUM;
+	}
+	
 }
