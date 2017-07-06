@@ -9,14 +9,14 @@
 </head>
 <body>
 	<div class="container">
-		<h2>예선참가자관리</h2>
+		<h2>본선참가자관리</h2>
 		<div class="content">
 			<div style="margin: 5px">
 				<c:forEach items="${competition }" var="competition"> 
-					<a href="admin1roundlist.do?mcn_no=${competition.mcn_no }" class="btn btn-warning btn-xs">${competition.mcn_name }</a>
+					<a href="admin3roundlist.do?mcn_no=${competition.mcn_no }" class="btn btn-warning btn-xs">${competition.mcn_name }</a>
 				</c:forEach>
 				<div align="right">
-					예선전 신청 인원 : ${enterCount }명
+					예선전 신청 인원 : ${enterCount3 }명
 				</div>
 			</div>
 			<table class="table table-bordered table-hover table-condensed">
@@ -28,33 +28,30 @@
 						<td>참가부문</td>
 						<td>교육원</td>
 						<td>참가대회횟차</td>
-						<td>참가대회</td>
 					</tr>
 				</thead>
 				<tbody align="center">
-					<c:forEach items="${enterDTO }" var="enterDTO"> 
+					<c:forEach items="${enterDTO3 }" var="enterDTO3"> 
 						<tr>
-							<td>${enterDTO.ROWNUM }</td>
-							<td>${enterDTO.ent_name }</td>
-							<td>${enterDTO.ent_birthday }</td>
+							<td>${enterDTO3.ROWNUM }</td>
+							<td>${enterDTO3.m2_name }</td>
+							<td>${enterDTO3.m_birthday }</td>
 							<td><c:choose>
-									<c:when test="${enterDTO.ent_enter == 1}">
+									<c:when test="${enterDTO3.m2_enter == 1}">
 										유치부
 									</c:when>
-									<c:when test="${enterDTO.ent_enter == 2}">
+									<c:when test="${enterDTO3.m2_enter == 2}">
 										초등1~2
 									</c:when>
-									<c:when test="${enterDTO.ent_enter == 3}">
+									<c:when test="${enterDTO3.m2_enter == 3}">
 										초등3~4
 									</c:when>
-									<c:when test="${enterDTO.ent_enter == 4}">
+									<c:when test="${enterDTO3.m2_enter == 4}">
 										초등5~6
 									</c:when>
 								</c:choose></td>
-							<td>${enterDTO.ent_cname }</td>
-							<td>${enterDTO.mcn_no }</td>
-							<td>${enterDTO.ma_comname }</td>
-							
+							<td>${enterDTO3.m2_cname }</td>
+							<td>${enterDTO3.mcn_no }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

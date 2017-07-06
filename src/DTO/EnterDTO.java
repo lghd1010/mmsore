@@ -35,6 +35,13 @@ public class EnterDTO {
 	private String ent_payday;
 	private String ent_deletday;
 	private String mcn_no;
+	private int ROWNUM;
+	
+	//대회 회차 
+	private int mcn_idx;
+	private String mcn_name;
+	private String mcn_regdate;
+	
 	public int getEnt_idx() {
 		return ent_idx;
 	}
@@ -232,6 +239,30 @@ public class EnterDTO {
 	}
 	public void setMcn_no(String mcn_no) {
 		this.mcn_no = mcn_no;
+	}
+	public int getROWNUM() {
+		return ROWNUM;
+	}
+	public void setROWNUM(int rOWNUM) {
+		ROWNUM = rOWNUM;
+	}
+	public int getMcn_idx() {
+		return mcn_idx;
+	}
+	public void setMcn_idx(int mcn_idx) {
+		this.mcn_idx = mcn_idx;
+	}
+	public String getMcn_name() {
+		return mcn_name;
+	}
+	public void setMcn_name(String mcn_name) {
+		this.mcn_name = mcn_name;
+	}
+	public String getMcn_regdate() {
+		return mcn_regdate;
+	}
+	public void setMcn_regdate(String mcn_regdate) {
+		this.mcn_regdate = mcn_regdate;
 	}
 	
 	
