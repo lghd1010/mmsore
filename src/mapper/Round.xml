@@ -67,9 +67,9 @@
 			    FROM
 			        mmso_enter_test ent, mmso_1round m1,
 			       (SELECT @ROWNUM := 0) R
-					where ${param2} like '%${param3}' and ent_active = 0 and
+					where ent_active = 0 and
 					ent.ent_idx = m1.ent_idx and
-					ent.mcn_no = ${param5}
+					ent.mcn_no = #{mcn_no}
 			) A
 		order by ent_birthday desc
 	</select>

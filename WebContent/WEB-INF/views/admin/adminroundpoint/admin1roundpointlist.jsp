@@ -9,6 +9,19 @@
 <body>
 <div class="container">
 	<h2>예선점수</h2>
+	<div class="content">
+		<table class="table table-bordered table-hover table-condensed">
+			<thead>
+				<tr>
+					<td>이름</td>
+					<td>생년월일</td>
+					<td>참가부문</td>
+					<td>교육원</td>
+					<td></td>
+				</tr>
+			</thead>
+		</table>
+	</div>
 </div>
 </body>
 </html>
