@@ -182,8 +182,10 @@ public class AdminController {
 		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
 		
 		List<Round1DTO> round1DTO = roundDAO.round1pointlist(mcn_no);
+		List<EnterDTO> competition = roundDAO.competition();
 		
 		model.addAttribute("round1DTO", round1DTO);
+		model.addAttribute("competition",competition);
 		return "admin.adminroundpoint.admin1roundpointlist";
 	}
 }

@@ -51,6 +51,9 @@ public class Round1DTO {
 	private String m_birthday;
 	
 	private int ROWNUM;
+	
+	private String ent_name;
+	private int ent_enter;
 
 
 	public String getPoint() {
@@ -380,6 +383,26 @@ public class Round1DTO {
 
 	public void setROWNUM(int rOWNUM) {
 		ROWNUM = rOWNUM;
+	}
+
+
+	public String getEnt_name() {
+		return ent_name;
+	}
+
+
+	public void setEnt_name(String ent_name) {
+		this.ent_name = ent_name;
+	}
+
+
+	public int getEnt_enter() {
+		return ent_enter;
+	}
+
+
+	public void setEnt_enter(int ent_enter) {
+		this.ent_enter = ent_enter;
 	}
 	
 
