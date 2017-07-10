@@ -9,11 +9,33 @@
 </head>
 <body>
 	<div class="container">
-		<h2>본선참가자관리</h2>
 		<div class="content">
 			<div style="margin: 5px">
-				<c:forEach items="${competition }" var="competition"> 
-					<a href="admin3roundlist.do?mcn_no=${competition.mcn_no }" class="btn btn-warning btn-xs">${competition.mcn_name }</a>
+				<c:forEach items="${enterDTO3 }" var="enterDTO3" begin="0" end="0"> 
+					<c:choose>
+						<c:when test="${enterDTO3.m2_enter == 1 }">
+							<h2>${enterDTO3.mcn_no }회 유치부 예선참가자관리</h2>
+						</c:when>
+						<c:when test="${enterDTO3.m2_enter == 2 }">
+							<h2>${enterDTO3.mcn_no }회 초등1~2 예선참가자관리</h2>
+						</c:when>
+						<c:when test="${enterDTO3.m2_enter == 3 }">
+							<h2>${enterDTO3.mcn_no }회 초등3~4 예선참가자관리</h2>
+						</c:when>
+						<c:when test="${enterDTO3.m2_enter == 4 }">
+							<h2>${enterDTO3.mcn_no }회 초등5~6 예선참가자관리</h2>
+						</c:when>
+					</c:choose>
+					<div style="margin-bottom: 10px">
+						<c:forEach items="${competition }" var="competition"> 
+							<a href="admin3roundlist.do?mcn_no=${competition.mcn_no }&ent_enter=${enterDTO3.m2_enter }" class="btn btn-warning btn-xs">${competition.mcn_name }</a>
+						</c:forEach>
+					</div>
+					<div>
+						<c:forEach items="${enterfield }" var="enterfield">
+							<a href="admin3roundlist.do?mcn_no=${enterDTO3.mcn_no }&ent_enter=${enterfield.mef_idx }" id="aa" class="btn btn-warning btn-xs">${enterfield.mef_name }</a>
+						</c:forEach>
+					</div>
 				</c:forEach>
 				<div align="right">
 					예선전 신청 인원 : ${enterCount3 }명

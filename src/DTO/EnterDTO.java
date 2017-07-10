@@ -37,6 +37,10 @@ public class EnterDTO {
 	private String mcn_no;
 	private int ROWNUM;
 	
+	private int mef_idx;
+	private String mef_name;
+	private String mef_regdate;
+	
 	//대회 회차 
 	private int mcn_idx;
 	private String mcn_name;
@@ -263,6 +267,24 @@ public class EnterDTO {
 	}
 	public void setMcn_regdate(String mcn_regdate) {
 		this.mcn_regdate = mcn_regdate;
+	}
+	public int getMef_idx() {
+		return mef_idx;
+	}
+	public void setMef_idx(int mef_idx) {
+		this.mef_idx = mef_idx;
+	}
+	public String getMef_name() {
+		return mef_name;
+	}
+	public void setMef_name(String mef_name) {
+		this.mef_name = mef_name;
+	}
+	public String getMef_regdate() {
+		return mef_regdate;
+	}
+	public void setMef_regdate(String mef_regdate) {
+		this.mef_regdate = mef_regdate;
 	}
 	
 	

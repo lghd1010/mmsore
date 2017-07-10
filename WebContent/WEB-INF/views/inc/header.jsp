@@ -83,17 +83,22 @@
 						</li>
 						<li class='has-sub'><a href='#'>대회관리</a>
 							<ul>
-								<li><a href='admin1roundlist.do?mcn_no=15'>예선참가자 관리</a></li>
-								<li><a href='admin2roundlist.do?mcn_no=15'>본선참가자 관리</a></li>
-								<li><a href='admin3roundlist.do?mcn_no=15'>결승 참가자 관리</a></li>
-								<li><a href='admineventlist.do'>종목 교구</a></li>
-								<li><a href='adminaddlist.do'>대회관리</a></li>
+								<li><a href='admin1roundlist.do?mcn_no=15&ent_enter=1'>예선참가자 관리</a></li>
+								<li><a href='admin2roundlist.do?mcn_no=15&ent_enter=1'>본선참가자 관리</a></li>
+								<li><a href='admin3roundlist.do?mcn_no=15&ent_enter=1'>결승 참가자 관리</a></li>
+								<li><a href='#'>종목 교구</a></li>
+								<li class='has-sub'><a href='#'>대회관리</a>
+									<ul>
+										<li><a href="adminaddlsit.do?mcn_no=15">대회관리</a></li>
+										<li><a href="admincompnolist.do?mcn_no=15">대회 횟차관리</a></li>
+									</ul>
+								</li>
 							</ul>
 							</li>
-							<li class='has-sub'><a href='adminpointlist.do?cn_no=15'>점수관리</a>
+							<li class='has-sub'><a href='#'>점수관리</a>
 							<ul>
-								<li><a href='admin1roundpointlist.do?mcn_no=15'>예선 점수관리</a></li>
-								<li><a href='round2pointlist.do?m2_enter=1'>본선 점수관리</a></li>
+								<li><a href='admin1roundpointlist.do?mcn_no=15&ent_enter=1'>예선 점수관리</a></li>
+								<li><a href='admin2roundpointlist.do?mcn_no=15'>본선 점수관리</a></li>
 								<li><a href='#'>결승 점수관리</a></li>
 							</ul>
 						</li>
