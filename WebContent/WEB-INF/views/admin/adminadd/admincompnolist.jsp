@@ -29,6 +29,25 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<form action="admincompnoinsert.do" method="post">
+			<table class="table table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<td>대회 횟차</td>
+						<td>대회 이름</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="text" id="mcn_no" name="mcn_no"></td>
+						<td><input type="text" id="mcn_name" name="mcn_name"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="btn">
+				<input type="submit" value="등록">
+			</div>
+		</form>
 	</div>
 </div>
 </body>

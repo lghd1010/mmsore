@@ -263,4 +263,23 @@ public class AdminController {
 		
 		return "admin.adminadd.admincompnolist";
 	}
+	
+	@RequestMapping(value="admincompnoinsert.do", method=RequestMethod.POST)
+	public String admincompnoinsert(AddDTO addDTO)throws Exception{
+		
+		System.out.println("횟차 등록하자");
+		
+		AddDAO addDAO = sqlSession.getMapper(AddDAO.class);
+		
+		int result = addDAO.admincompnoinsert(addDTO);
+		
+		if(result != 0){
+			System.out.println("등록완료");
+		}else{
+			System.out.println("등록실패");
+		}
+		
+		return "redirect:admincompnolist.do";
+	}
 }
+

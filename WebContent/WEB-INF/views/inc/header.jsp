@@ -90,7 +90,7 @@
 								<li class='has-sub'><a href='#'>대회관리</a>
 									<ul>
 										<li><a href="adminaddlsit.do?mcn_no=15">대회관리</a></li>
-										<li><a href="admincompnolist.do?mcn_no=15">대회 횟차관리</a></li>
+										<li><a href="admincompnolist.do">대회 횟차관리</a></li>
 									</ul>
 								</li>
 							</ul>
