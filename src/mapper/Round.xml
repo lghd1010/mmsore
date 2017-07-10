@@ -112,7 +112,8 @@
 			       (SELECT @ROWNUM := 0) R
 					where ent_active = 0 and
 					ent.ent_idx = m2.ent_idx and
-					ent.mcn_no = #{mcn_no}
+					ent.mcn_no = ${param1} and
+					m2.m2_enter = ${param2}
 			) A
 		order by ent_birthday desc
 	</select>

@@ -228,17 +228,20 @@ public class AdminController {
 	
 	
 	@RequestMapping("admin2roundpointlist.do")
-	public String admin2roundpointlist(Model model, int mcn_no)throws Exception{
+	public String admin2roundpointlist(Model model, int mcn_no, int ent_enter)throws Exception{
 		
 		System.out.println("점수창아 나와라");
 		
 		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
 		
-		List<Round2DTO> round2DTO = roundDAO.round2pointlist(mcn_no);
+		List<Round2DTO> round2DTO = roundDAO.round2pointlist(mcn_no, ent_enter);
 		List<EnterDTO> competition = roundDAO.competition();
+		List<EnterDTO> enterfield = roundDAO.enterfield();
 		
 		model.addAttribute("round2DTO", round2DTO);
 		model.addAttribute("competition",competition);
+		model.addAttribute("enterfield",enterfield);
+		
 		return "admin.adminroundpoint.admin2roundpointlist";
 	}
 	

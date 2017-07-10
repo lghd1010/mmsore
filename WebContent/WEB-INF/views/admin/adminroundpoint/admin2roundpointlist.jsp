@@ -3,19 +3,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="container">
-	<h2>본선점수</h2>
 	<div class="content">
-		<div style="margin: 10px">
-			<c:forEach items="${competition }" var="competition">
-				<a href="admin2roundpointlist.do?mcn_no=${competition.mcn_no }" id="aa" class="btn btn-warning btn-xs">${competition.mcn_name }</a>
-			</c:forEach>
-		</div>
+		<c:forEach items="${round2DTO }" var="round2DTO" begin="0" end="0">
+			<div>
+				<c:choose>
+					<c:when test="${round2DTO.ent_enter == 1 }">
+						<h2 >${round2DTO.mcn_no }회대회 유치부 본선 점수 수정 </h2>
+					</c:when>
+					<c:when test="${round2DTO.ent_enter == 2 }">
+						<h2 >${round2DTO.mcn_no }회대회 초등1~2 본산 점수 수정 </h2>
+					</c:when>
+					<c:when test="${round2DTO.ent_enter == 3 }">
+						<h2 >${round2DTO.mcn_no }회대회 초등3~4 본산 점수 수정 </h2>
+					</c:when>
+					<c:when test="${round2DTO.ent_enter == 4 }">
+						<h2 >${round2DTO.mcn_no }회대회 초등5~6 본산 점수 수정 </h2>
+					</c:when>
+				</c:choose>
+			</div>
+			<div style="margin: 10px;">
+				<c:forEach items="${competition }" var="competition">
+					<a href="admin2roundpointlist.do?mcn_no=${competition.mcn_no }&ent_enter=${round2DTO.ent_enter }" id="aa" class="btn btn-warning btn-xs">${competition.mcn_name }</a>
+				</c:forEach>
+			</div>
+			<div style="margin: 10px;float: left;">
+				<c:forEach items="${enterfield }" var="enterfield">
+						<a href="admin2roundpointlist.do?mcn_no=${round2DTO.mcn_no }&ent_enter=${enterfield.mef_idx }" id="aa" class="btn btn-warning btn-xs">${enterfield.mef_name }</a>
+				</c:forEach>
+			</div>
+			<div align="right" style="margin-top: 10px;float: left;">
+				<a href="admin2roundpointins.do?mcn_no=${round2DTO.mcn_no }&ent_enter=${round2DTO.ent_enter }" class="btn btn-info">본선점수 등록</a>
+				<a href="admin2roundpointupdate.do?mcn_no=${round2DTO.mcn_no }&ent_enter=${round2DTO.ent_enter }" class="btn btn-info">본선점수 수정</a>
+			</div>
+		</c:forEach>
 		<table class="table table-bordered table-hover table-condensed">
 			<thead>
-				<c:forEach items="${round2DTO }" var="round2DTO" begin="0" end="0">
-					<tr>
-						<td colspan="9"><h2>${round2DTO.mcn_no }회대회 본선 점수</h2></td>
-					</tr>
 					<tr>
 						<td>이름</td>
 						<td>생년월일</td>
@@ -27,7 +49,6 @@
 						<td>네번째게임 점수</td>
 						<td>본선참가버튼</td>
 					</tr>
-				</c:forEach>
 			</thead>
 			<tbody>
 				<c:forEach items="${round2DTO }" var="round2DTO">

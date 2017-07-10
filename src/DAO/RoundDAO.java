@@ -20,7 +20,7 @@ public interface RoundDAO {
 
 	public List<EnterDTO> competition()throws Exception;
 
-	public List<Round2DTO> round2pointlist(int mcn_no)throws Exception;
+	public List<Round2DTO> round2pointlist(int mcn_no, int ent_enter)throws Exception;
 
 	public int admin1roundpointlistck(Round1DTO round1dto)throws Exception;
 
