@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import common.BoardPager;
 import DAO.AddDAO;
+import DAO.BranchDAO;
 import DAO.EnterDAO;
 import DAO.MemberDAO;
 import DAO.RoundDAO;
 import DTO.AddDTO;
+import DTO.BranchDTO;
 import DTO.EnterDTO;
 import DTO.MemberDTO;
 import DTO.Round1DTO;
@@ -250,7 +252,90 @@ public class AdminController {
 		
 		System.out.println("대회 리스트창");
 		
+		AddDAO addDAO = sqlSession.getMapper(AddDAO.class);
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		List<AddDTO> addDTO	= addDAO.adminaddlist(mcn_no);
+		List<EnterDTO> competition = roundDAO.competition();
+		
+		model.addAttribute("addDTO", addDTO);
+		model.addAttribute("competition",competition);
+		
 		return "admin.adminadd.adminaddlist";
+	}
+	
+	@RequestMapping(value="adminaddins.do", method=RequestMethod.GET)
+	public String adminaddins(Model model, int mcn_no)throws Exception{
+		
+		System.out.println("등록하는곳");
+
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		BranchDAO branchDAO = sqlSession.getMapper(BranchDAO.class);
+		
+		List<EnterDTO> competition = roundDAO.competition();
+		List<BranchDTO> branchDTO = branchDAO.memberbranchlist();
+		
+		
+		model.addAttribute("competition",competition);
+		model.addAttribute("branchDTO",branchDTO);
+		
+		return "admin.adminadd.adminaddins";
+	}
+	
+	@RequestMapping(value="adminaddinsert.do", method=RequestMethod.POST)
+	public String adminaddinsert(AddDTO addDTO, int mcn_no)throws Exception{
+		
+		System.out.println("대회등록");
+		
+		AddDAO addDAO = sqlSession.getMapper(AddDAO.class);
+		
+		int result = addDAO.adminaddinsert(addDTO);
+		
+		if(result != 0){
+			System.out.println("대회 등록완료");
+		}else{
+			System.out.println("대회 등록 실패");
+		}
+		
+		return "redirect:adminaddlist.do?mcn_no="+mcn_no;
+	}
+	
+	@RequestMapping("adminadddetaile.do")
+	public String adminadddetaile(Model model, int ma_idx)throws Exception{
+		
+		System.out.println("상세보기");
+		
+		AddDAO addDAO = sqlSession.getMapper(AddDAO.class);
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		BranchDAO branchDAO = sqlSession.getMapper(BranchDAO.class);
+		
+		AddDTO addDTO = addDAO.adminadddetaile(ma_idx);
+		List<EnterDTO> competition = roundDAO.competition();
+		List<BranchDTO> branchDTO = branchDAO.memberbranchlist();
+		
+		model.addAttribute("addDTO", addDTO);
+		model.addAttribute("competition", competition);
+		model.addAttribute("branchDTO", branchDTO);
+		
+		return "admin.adminadd.adminadddetaile";
+	}
+	
+	@RequestMapping("adminaddupdate.do")
+	public String adminaddupdate(AddDTO addDTO, int ma_idx)throws Exception{
+		
+		System.out.println("업데이트 실행");
+		
+		AddDAO addDAO = sqlSession.getMapper(AddDAO.class);
+		
+		int result = addDAO.adminaddupdate(addDTO);
+		
+		if(result != 0){
+			System.out.println("업데이트 완료");
+		}else{
+			System.out.println("업데이트 실패");
+		}
+		
+		return "redirect:adminadddetaile.do?ma_idx="+ma_idx;
 	}
 	
 	@RequestMapping("admincompnolist.do")

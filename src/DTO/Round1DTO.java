@@ -52,6 +52,11 @@ public class Round1DTO {
 	
 	private int ROWNUM;
 	
+	private String ma_u_event_1, ma_u_event_2, ma_u_event_3, ma_u_event_4;
+	private String ma_e1_event_1, ma_e1_event_2, ma_e1_event_3, ma_e1_event_4;
+	private String ma_e3_event_1, ma_e3_event_2, ma_e3_event_3, ma_e3_event_4;
+	private String ma_e5_event_1, ma_e5_event_2, ma_e5_event_3, ma_e5_event_4;
+	
 	private String ent_name;
 	private int ent_enter;
 
@@ -403,6 +408,166 @@ public class Round1DTO {
 
 	public void setEnt_enter(int ent_enter) {
 		this.ent_enter = ent_enter;
+	}
+
+
+	public String getMa_u_event_1() {
+		return ma_u_event_1;
+	}
+
+
+	public void setMa_u_event_1(String ma_u_event_1) {
+		this.ma_u_event_1 = ma_u_event_1;
+	}
+
+
+	public String getMa_u_event_2() {
+		return ma_u_event_2;
+	}
+
+
+	public void setMa_u_event_2(String ma_u_event_2) {
+		this.ma_u_event_2 = ma_u_event_2;
+	}
+
+
+	public String getMa_u_event_3() {
+		return ma_u_event_3;
+	}
+
+
+	public void setMa_u_event_3(String ma_u_event_3) {
+		this.ma_u_event_3 = ma_u_event_3;
+	}
+
+
+	public String getMa_u_event_4() {
+		return ma_u_event_4;
+	}
+
+
+	public void setMa_u_event_4(String ma_u_event_4) {
+		this.ma_u_event_4 = ma_u_event_4;
+	}
+
+
+	public String getMa_e1_event_1() {
+		return ma_e1_event_1;
+	}
+
+
+	public void setMa_e1_event_1(String ma_e1_event_1) {
+		this.ma_e1_event_1 = ma_e1_event_1;
+	}
+
+
+	public String getMa_e1_event_2() {
+		return ma_e1_event_2;
+	}
+
+
+	public void setMa_e1_event_2(String ma_e1_event_2) {
+		this.ma_e1_event_2 = ma_e1_event_2;
+	}
+
+
+	public String getMa_e1_event_3() {
+		return ma_e1_event_3;
+	}
+
+
+	public void setMa_e1_event_3(String ma_e1_event_3) {
+		this.ma_e1_event_3 = ma_e1_event_3;
+	}
+
+
+	public String getMa_e1_event_4() {
+		return ma_e1_event_4;
+	}
+
+
+	public void setMa_e1_event_4(String ma_e1_event_4) {
+		this.ma_e1_event_4 = ma_e1_event_4;
+	}
+
+
+	public String getMa_e3_event_1() {
+		return ma_e3_event_1;
+	}
+
+
+	public void setMa_e3_event_1(String ma_e3_event_1) {
+		this.ma_e3_event_1 = ma_e3_event_1;
+	}
+
+
+	public String getMa_e3_event_2() {
+		return ma_e3_event_2;
+	}
+
+
+	public void setMa_e3_event_2(String ma_e3_event_2) {
+		this.ma_e3_event_2 = ma_e3_event_2;
+	}
+
+
+	public String getMa_e3_event_3() {
+		return ma_e3_event_3;
+	}
+
+
+	public void setMa_e3_event_3(String ma_e3_event_3) {
+		this.ma_e3_event_3 = ma_e3_event_3;
+	}
+
+
+	public String getMa_e3_event_4() {
+		return ma_e3_event_4;
+	}
+
+
+	public void setMa_e3_event_4(String ma_e3_event_4) {
+		this.ma_e3_event_4 = ma_e3_event_4;
+	}
+
+
+	public String getMa_e5_event_1() {
+		return ma_e5_event_1;
+	}
+
+
+	public void setMa_e5_event_1(String ma_e5_event_1) {
+		this.ma_e5_event_1 = ma_e5_event_1;
+	}
+
+
+	public String getMa_e5_event_2() {
+		return ma_e5_event_2;
+	}
+
+
+	public void setMa_e5_event_2(String ma_e5_event_2) {
+		this.ma_e5_event_2 = ma_e5_event_2;
+	}
+
+
+	public String getMa_e5_event_3() {
+		return ma_e5_event_3;
+	}
+
+
+	public void setMa_e5_event_3(String ma_e5_event_3) {
+		this.ma_e5_event_3 = ma_e5_event_3;
+	}
+
+
+	public String getMa_e5_event_4() {
+		return ma_e5_event_4;
+	}
+
+
+	public void setMa_e5_event_4(String ma_e5_event_4) {
+		this.ma_e5_event_4 = ma_e5_event_4;
 	}
 	
 

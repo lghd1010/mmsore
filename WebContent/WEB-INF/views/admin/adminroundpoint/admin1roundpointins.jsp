@@ -41,15 +41,38 @@
 					<td>교육원</td>
 					<td>참가부문</td>
 					<td>1번게임 점수</td>
-					<td>1번게임 시간</td>
 					<td>2번게임 점수</td>
-					<td>2번게임 시간</td>
 					<td>3번게임 점수</td>
-					<td>3번게임 시간</td>
 					<td>4번게임 점수</td>
-					<td>4번게임 시간</td>
 				</tr>
 			</thead>
+			<tbody>
+				<c:forEach items="${enterDTO }" var="enterDTO">
+					<tr>
+						<td>${enterDTO.ent_name }<input type="hidden" id="" name="" value="${enterDTO.ent_name }"></td>
+						<td>${enterDTO.ent_birthday }<input type="hidden" id="" name="" value="${enterDTO.ent_birthday }"></td>
+						<td>${enterDTO.ent_cname }<input type="hidden" id="" name="" value="${enterDTO.ent_cname }"></td>
+						<td><c:choose>
+								<c:when test="${enterDTO.ent_enter == 1}">
+									유치부<input type="hidden" id="" name="" value="${enterDTO.ent_enter }">
+								</c:when>
+								<c:when test="${enterDTO.ent_enter == 2}">
+									초등1~2<input type="hidden" id="" name="" value="${enterDTO.ent_enter }">
+								</c:when>
+								<c:when test="${enterDTO.ent_enter == 3}">
+									초등3~4<input type="hidden" id="" name="" value="${enterDTO.ent_enter }">
+								</c:when>
+								<c:when test="${enterDTO.ent_enter == 4}">
+									초등5~6<input type="hidden" id="" name="" value="${enterDTO.ent_enter }">
+								</c:when>
+							</c:choose>	</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 	</div>
 </div>

@@ -50,10 +50,36 @@
 						<td>생년월일</td>
 						<td>참가부문</td>
 						<td>교육원</td>
-						<td>첫번째게임 점수</td>
-						<td>두번째게임 점수</td>
-						<td>세번째게임 점수</td>
-						<td>네번째게임 점수</td>
+						<%-- <c:choose>
+							<c:when test="${round1DTO.ent_enter == 1}">
+								<td>${round1DTO.ma_u_event_1 }</td>
+								<td>${round1DTO.ma_u_event_2 }</td>
+								<td>${round1DTO.ma_u_event_3 }</td>
+								<td>${round1DTO.ma_u_event_4 }</td>
+							</c:when>
+							<c:when test="${round1DTO.ent_enter == 2}">
+								<td>${round1DTO.ma_e1_event_1 }</td>
+								<td>${round1DTO.ma_e1_event_2 }</td>
+								<td>${round1DTO.ma_e1_event_3 }</td>
+								<td>${round1DTO.ma_e1_event_4 }</td>
+							</c:when>
+							<c:when test="${round1DTO.ent_enter == 3}">
+								<td>${round1DTO.ma_e3_event_1 }</td>
+								<td>${round1DTO.ma_e3_event_2 }</td>
+								<td>${round1DTO.ma_e3_event_3 }</td>
+								<td>${round1DTO.ma_e3_event_4 }</td>
+							</c:when>
+							<c:when test="${round1DTO.ent_enter == 4}">
+								<td>${round1DTO.ma_e5_event_1 }</td>
+								<td>${round1DTO.ma_e5_event_2 }</td>
+								<td>${round1DTO.ma_e5_event_3 }</td>
+								<td>${round1DTO.ma_e5_event_4 }</td>
+							</c:when>
+						</c:choose> --%>
+						<td>첫번째게임</td>
+						<td>두번째게임</td>
+						<td>세번째게임</td>
+						<td>네번째게임</td>
 						<td>본선참가버튼</td>
 					</tr>
 				</c:forEach>

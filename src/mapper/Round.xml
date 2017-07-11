@@ -66,6 +66,27 @@
 	
 	
 	<select id="round1pointlist" resultType="DTO.Round1DTO">
+	<!-- select A.* 
+		from (
+			    SELECT
+			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
+			        ent.* , m1_round_ck, m1_1roundpoint, m1_2roundpoint, m1_3roundpoint, m1_4roundpoint, 
+              m1_1roundtime, m1_2roundtime, m1_3roundtime, m1_4roundtime, m1_idx,
+              ma_u_event_1, ma_u_event_2, ma_u_event_3, ma_u_event_4,
+              ma_e1_event_1, ma_e1_event_2, ma_e1_event_3, ma_e1_event_4,
+              ma_e3_event_1, ma_e3_event_2, ma_e3_event_3, ma_e3_event_4,
+              ma_e5_event_1, ma_e5_event_2, ma_e5_event_3, ma_e5_event_4
+			    FROM
+			        mmso_enter_test ent, mmso_1round m1,mmso_add ma, 
+			       (SELECT @ROWNUM := 0) R
+					where ent_active = 0 and
+					ent.ent_idx = m1.ent_idx and
+					ent.mcn_no = ${param1} and
+					ent.ent_enter = ${param2} and
+					m1.m1_ma_idx = ma.ma_idx
+			) A
+		order by ent_birthday desc -->
+	
 			select A.* 
 		from (
 			    SELECT
@@ -73,12 +94,12 @@
 			        ent.* , m1_round_ck, m1_1roundpoint, m1_2roundpoint, m1_3roundpoint, m1_4roundpoint, 
               m1_1roundtime, m1_2roundtime, m1_3roundtime, m1_4roundtime, m1_idx
 			    FROM
-			        mmso_enter_test ent, mmso_1round m1,
+			        mmso_enter_test ent, mmso_1round, 
 			       (SELECT @ROWNUM := 0) R
 					where ent_active = 0 and
 					ent.ent_idx = m1.ent_idx and
 					ent.mcn_no = ${param1} and
-					ent.ent_enter = ${param2}
+					ent.ent_enter = ${param2} and
 			) A
 		order by ent_birthday desc
 	</select>

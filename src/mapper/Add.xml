@@ -2,15 +2,133 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="DAO.AddDAO">
-    	
-    	<select id="admincompnolist" resultType="DTO.AddDTO">
-    		select * from mmso_comp_no
-    	</select>
-    	
-    	
-    	<insert id="admincompnoinsert">
-    		insert into mmso_comp_no (mcn_name, mcn_no, mcn_regdate)
-    		values(#{mcn_name}, #{mcn_no}, sysdate())
-    	</insert>
-    </mapper>
+<mapper namespace="DAO.AddDAO">
+
+	<select id="admincompnolist" resultType="DTO.AddDTO">
+		select * from mmso_comp_no
+	</select>
+
+
+	<insert id="admincompnoinsert">
+		insert into mmso_comp_no (mcn_name, mcn_no, mcn_regdate)
+		values(#{mcn_name}, #{mcn_no}, sysdate())
+	</insert>
+
+	<select id="adminaddlist" resultType="DTO.AddDTO">
+		select A.*
+		from (
+		SELECT
+		@ROWNUM := @ROWNUM + 1 AS ROWNUM,
+		mmso_add.*
+		FROM
+		mmso_add,
+		(SELECT @ROWNUM := 0) R
+		where ma_com_active = 0 and
+		ma_comp_no = #{mcn_no}
+		) A
+		order by ma_idx desc
+	</select>
+
+	<insert id="adminaddinsert">
+		insert into mmso_add(
+		ma_comname, 
+		ma_receipt_start, 
+		ma_receipt_end, 
+		ma_comdate, 
+		ma_u_event_1, 
+		ma_u_event_2, 
+		ma_u_event_3, 
+		ma_u_event_4, 
+		ma_e1_event_1, 
+		ma_e1_event_2, 
+		ma_e1_event_3, 
+		ma_e1_event_4,
+		ma_e3_event_1, 
+		ma_e3_event_2, 
+		ma_e3_event_3, 
+		ma_e3_event_4, 
+		ma_e5_event_1, 
+		ma_e5_event_2, 
+		ma_e5_event_3, 
+		ma_e5_event_4,
+		ma_complace,
+		ma_comprice,
+		ma_comkind,
+		ma_commethod,
+		ma_host,
+		ma_com_active,
+		ma_com_regdate,
+		ma_comp_no,
+		ma_account
+		)
+		values(
+		#{ma_comname},
+		#{ma_receipt_start},
+		#{ma_receipt_end},
+		#{ma_comdate},
+		#{ma_u_event_1},
+		#{ma_u_event_2},
+		#{ma_u_event_3},
+		#{ma_u_event_4},
+		#{ma_e1_event_1},
+		#{ma_e1_event_2},
+		#{ma_e1_event_3},
+		#{ma_e1_event_4},
+		#{ma_e3_event_1},
+		#{ma_e3_event_2},
+		#{ma_e3_event_3},
+		#{ma_e3_event_4},
+		#{ma_e5_event_1},
+		#{ma_e5_event_2},
+		#{ma_e5_event_3},
+		#{ma_e5_event_4},
+		#{ma_complace},
+		#{ma_comprice},
+		#{ma_comkind},
+		#{ma_commethod},
+		#{ma_host},
+		0,
+		sysdate(),
+		#{ma_comp_no},
+		#{ma_account}
+		)
+	</insert>
+	
+	<select id="adminadddetaile" resultType="DTO.AddDTO">
+		select * from mmso_add
+		where ma_idx = #{ma_idx}
+	</select>
+	
+	<update id="adminaddupdate">
+		update mmso_add
+			set
+				ma_comname=#{ma_comname},
+				ma_receipt_start=#{ma_receipt_start},
+				ma_receipt_end=#{ma_receipt_end},
+				ma_comdate=#{ma_comdate},
+				ma_u_event_1=#{ma_u_event_1},
+				ma_u_event_2=#{ma_u_event_2},
+				ma_u_event_3=#{ma_u_event_3},
+				ma_u_event_4=#{ma_u_event_4},
+				ma_e1_event_1=#{ma_e1_event_1},
+				ma_e1_event_2=#{ma_e1_event_2},
+				ma_e1_event_3=#{ma_e1_event_3},
+				ma_e1_event_4=#{ma_e1_event_4},
+				ma_e3_event_1=#{ma_e3_event_1},
+				ma_e3_event_2=#{ma_e3_event_2},
+				ma_e3_event_3=#{ma_e3_event_3},
+				ma_e3_event_4=#{ma_e3_event_4},
+				ma_e5_event_1=#{ma_e5_event_1},
+				ma_e5_event_2=#{ma_e5_event_2},
+				ma_e5_event_3=#{ma_e5_event_3},
+				ma_e5_event_4=#{ma_e5_event_4},
+				ma_complace=#{ma_complace},
+				ma_comprice=#{ma_comprice},
+				ma_comkind=#{ma_comkind},
+				ma_commethod=#{ma_commethod},
+				ma_host=#{ma_host},
+				ma_comp_no=#{ma_comp_no},
+				ma_account=#{ma_account}
+			where ma_idx = #{ma_idx}
+	</update>
+</mapper>

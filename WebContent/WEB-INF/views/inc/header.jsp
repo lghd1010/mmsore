@@ -86,7 +86,7 @@
 								<li><a href='admin1roundlist.do?mcn_no=15&ent_enter=1'>예선참가자 관리</a></li>
 								<li><a href='admin2roundlist.do?mcn_no=15&ent_enter=1'>본선참가자 관리</a></li>
 								<li><a href='admin3roundlist.do?mcn_no=15&ent_enter=1'>결승 참가자 관리</a></li>
-								<li><a href='#'>종목 교구</a></li>
+								<!-- <li><a href='#'>종목 교구</a></li> -->
 								<li class='has-sub'><a href='#'>대회관리</a>
 									<ul>
 										<li><a href="adminaddlsit.do?mcn_no=15">대회관리</a></li>
