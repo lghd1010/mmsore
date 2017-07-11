@@ -36,6 +36,7 @@ public class EnterDTO {
 	private String ent_deletday;
 	private String mcn_no;
 	private int ROWNUM;
+	private int b_idx;
 	
 	private int mef_idx;
 	private String mef_name;
@@ -285,6 +286,12 @@ public class EnterDTO {
 	}
 	public void setMef_regdate(String mef_regdate) {
 		this.mef_regdate = mef_regdate;
+	}
+	public int getB_idx() {
+		return b_idx;
+	}
+	public void setB_idx(int b_idx) {
+		this.b_idx = b_idx;
 	}
 	
 	

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import common.BoardPager;
 import DAO.AddDAO;
 import DAO.BranchDAO;
 import DAO.EnterDAO;
@@ -23,6 +22,8 @@ import DTO.EnterDTO;
 import DTO.MemberDTO;
 import DTO.Round1DTO;
 import DTO.Round2DTO;
+
+import common.BoardPager;
 
 @Controller
 public class AdminController {
@@ -227,6 +228,24 @@ public class AdminController {
 		return "admin.adminroundpoint.admin1roundpointins";
 	}
 	
+	@RequestMapping(value="adminround1pointinsert2.do", method=RequestMethod.POST)
+	public String adminround1pointinsert2(Round1DTO round1DTO, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("등록");
+		
+		EnterDAO enterDAO = sqlSession.getMapper(EnterDAO.class);
+		
+		int result = enterDAO.round1pointinsert2(round1DTO);
+		
+		
+		if(result != 0){
+			System.out.println("인서트");
+		}else{
+			System.out.println("실패");
+		}
+				
+		return "redirect:admin1roundpointins.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
+	}
 	
 	
 	@RequestMapping("admin2roundpointlist.do")
@@ -369,5 +388,48 @@ public class AdminController {
 		
 		return "redirect:admincompnolist.do";
 	}
+	
+	@RequestMapping(value="admin2roundpointupdate.do", method=RequestMethod.GET)
+	public String admin2roundpointupdate(Model model, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("예선점수 수정화면");
+		
+		/*RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		List<Round1DTO> round1DTO = roundDAO.round1pointlist(mcn_no, ent_enter);
+		List<EnterDTO> competition = roundDAO.competition();
+		List<EnterDTO> enterfield = roundDAO.enterfield();
+		
+		model.addAttribute("round1DTO", round1DTO);
+		model.addAttribute("competition",competition);
+		model.addAttribute("enterfield",enterfield);*/
+		
+		return "admin.adminroundpoint.admin2roundpointupdate";
+	}
+	
+	@RequestMapping(value="admin2roundpointins.do", method=RequestMethod.GET)
+	public String admin2roundpointins(Model model, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("예선점 점수 입력하는 화면나와");
+		
+		/*EnterDAO enterDAO = sqlSession.getMapper(EnterDAO.class);
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		int enterCount = enterDAO.getenterCount(mcn_no, ent_enter);// 검색 결과에 따른 게시글 총
+		
+		
+		List<EnterDTO> enterDTO = enterDAO.admin1roundlist(mcn_no, ent_enter);
+		List<EnterDTO> competition = roundDAO.competition();
+		List<EnterDTO> enterfield = roundDAO.enterfield();
+		
+		model.addAttribute("enterCount", enterCount);
+		model.addAttribute("enterDTO", enterDTO);
+		model.addAttribute("competition",competition);
+		model.addAttribute("enterfield",enterfield);*/
+		
+		
+		return "admin.adminroundpoint.admin2roundpointins";
+	}
+	
 }
 
