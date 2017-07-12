@@ -20,6 +20,8 @@ public class Round2DTO {
 	private int m1_enter;
 	private String m2_1time;
 	private String m2_2time;
+	private String m2_3time;
+	private String m2_4time;
 	private int ROWNUM;
 	private String m_birthday;
 	private String ent_name;
@@ -174,6 +176,18 @@ public class Round2DTO {
 	}
 	public void setEnt_cname(String ent_cname) {
 		this.ent_cname = ent_cname;
+	}
+	public String getM2_3time() {
+		return m2_3time;
+	}
+	public void setM2_3time(String m2_3time) {
+		this.m2_3time = m2_3time;
+	}
+	public String getM2_4time() {
+		return m2_4time;
+	}
+	public void setM2_4time(String m2_4time) {
+		this.m2_4time = m2_4time;
 	}
 	
 	

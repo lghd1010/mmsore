@@ -99,7 +99,7 @@
 							<ul>
 								<li><a href='admin1roundpointlist.do?mcn_no=15&ent_enter=1'>예선 점수관리</a></li>
 								<li><a href='admin2roundpointlist.do?mcn_no=15&ent_enter=1'>본선 점수관리</a></li>
-								<li><a href='#'>결승 점수관리</a></li>
+								<li><a href='admin3roundpointlist.do?mcn_no=15&ent_enter=1'>결승 점수관리</a></li>
 							</ul>
 						</li>
 					</ul>

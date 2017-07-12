@@ -79,7 +79,7 @@
 						<td>
 							<c:choose>
 								<c:when test="${round2DTO.m2_round_ck == 2}">
-									<a href="" class="btn btn-info btn-xs">결승진출</a>
+									<a href="admin2roundck.do?mcn_no=${round2DTO.mcn_no }&ent_enter=${round2DTO.ent_enter}&m2_idx=${round2DTO.m2_idx}" class="btn btn-info btn-xs">결승진출</a>
 								</c:when>
 								<c:when test="${round2DTO.m2_round_ck == 3}">
 									<input type="button" disabled="disabled" class="btn btn-susses btn-xs" value="결승진출완료">

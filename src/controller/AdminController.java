@@ -22,7 +22,7 @@ import DTO.EnterDTO;
 import DTO.MemberDTO;
 import DTO.Round1DTO;
 import DTO.Round2DTO;
-
+import DTO.Round3DTO;
 import common.BoardPager;
 
 @Controller
@@ -394,17 +394,35 @@ public class AdminController {
 		
 		System.out.println("예선점수 수정화면");
 		
-		/*RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
 		
-		List<Round1DTO> round1DTO = roundDAO.round1pointlist(mcn_no, ent_enter);
+		List<Round2DTO> round2DTO = roundDAO.round2pointlist(mcn_no, ent_enter);
 		List<EnterDTO> competition = roundDAO.competition();
 		List<EnterDTO> enterfield = roundDAO.enterfield();
 		
-		model.addAttribute("round1DTO", round1DTO);
+		model.addAttribute("round2DTO", round2DTO);
 		model.addAttribute("competition",competition);
-		model.addAttribute("enterfield",enterfield);*/
+		model.addAttribute("enterfield",enterfield);		
 		
 		return "admin.adminroundpoint.admin2roundpointupdate";
+	}
+	
+	@RequestMapping("admin2roundpointupdatee.do")
+	public String admin2roundpointupdatee(Round2DTO round2DTO, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("본선점수 수정하기");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		int result = roundDAO.admin2roundpointupdatee(round2DTO);
+				
+		if(result == 1){
+			System.out.println("수정완료");
+		}else{
+			System.out.println("수정실패");
+		}
+		
+		return "redirect:admin2roundpointupdate.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
 	}
 	
 	@RequestMapping(value="admin2roundpointins.do", method=RequestMethod.GET)
@@ -412,23 +430,130 @@ public class AdminController {
 		
 		System.out.println("예선점 점수 입력하는 화면나와");
 		
-		/*EnterDAO enterDAO = sqlSession.getMapper(EnterDAO.class);
 		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
 		
-		int enterCount = enterDAO.getenterCount(mcn_no, ent_enter);// 검색 결과에 따른 게시글 총
+		int enterCount2 = roundDAO.getenterCount2(mcn_no, ent_enter);// 검색 결과에 따른 게시글 총
 		
-		
-		List<EnterDTO> enterDTO = enterDAO.admin1roundlist(mcn_no, ent_enter);
+		List<EnterDTO> enterDTO2 = roundDAO.admin2roundlist(mcn_no, ent_enter);
 		List<EnterDTO> competition = roundDAO.competition();
 		List<EnterDTO> enterfield = roundDAO.enterfield();
 		
-		model.addAttribute("enterCount", enterCount);
-		model.addAttribute("enterDTO", enterDTO);
+		model.addAttribute("enterCount2", enterCount2);
+		model.addAttribute("enterDTO2", enterDTO2);
 		model.addAttribute("competition",competition);
-		model.addAttribute("enterfield",enterfield);*/
+		model.addAttribute("enterfield",enterfield);
 		
 		
 		return "admin.adminroundpoint.admin2roundpointins";
+	}
+	
+	@RequestMapping(value="admin2roundpointinsrt.do", method=RequestMethod.POST)
+	public String admin2roundpointinsert(Round2DTO round2DTO, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("본선점수 입력");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		int result = roundDAO.admin2roundpointinsert(round2DTO);
+		
+		if(result != 0){
+			System.out.println("등록완료");
+		}else{
+			System.out.println("등록실패");
+		}
+		
+		return "redirect:admin2roundpointins.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
+	}
+	
+	@RequestMapping("admin2roundck.do")
+	public String admin2roundck (Round2DTO round2DTO, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("결승체크하기");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		int result = roundDAO.admin2roundck(round2DTO);
+		
+		if(result == 1){
+			System.out.println("결승체크완료");
+		}else{
+			System.out.println("실패");
+		}
+		
+		return "redirect:admin2roundpointlist.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
+	}
+	
+	@RequestMapping("admin3roundpointlist.do")
+	public String admin3roundpointlist(Model model, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("결승 리스트 나와라");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		List<Round3DTO> round3DTO = roundDAO.round3pointlist(mcn_no, ent_enter);
+		List<EnterDTO> competition = roundDAO.competition();
+		List<EnterDTO> enterfield = roundDAO.enterfield();
+		
+		model.addAttribute("round3DTO", round3DTO);
+		model.addAttribute("competition",competition);
+		model.addAttribute("enterfield",enterfield);
+		
+		return "admin.adminroundpoint.admin3roundpointlist";
+	}
+	
+	@RequestMapping(value="admin3roundpointins.do", method=RequestMethod.GET)
+	public String admin3roundpointins(Model model, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("결승 점수 입력창");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		
+		List<EnterDTO> enterDTO3 = roundDAO.admin3roundlist(mcn_no, ent_enter);
+		List<EnterDTO> competition = roundDAO.competition();
+		List<EnterDTO> enterfield = roundDAO.enterfield();
+		
+		model.addAttribute("enterDTO3", enterDTO3);
+		model.addAttribute("competition",competition);
+		model.addAttribute("enterfield",enterfield);
+		
+		return "admin.adminroundpoint.admin3roundpointins";
+	}
+	
+	@RequestMapping("admin3roundpointupdate.do")
+	public String admin3roundpointupdate(Model model, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("경승점수 수정");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		List<Round3DTO> round3DTO = roundDAO.round3pointlist(mcn_no, ent_enter);
+		List<EnterDTO> competition = roundDAO.competition();
+		List<EnterDTO> enterfield = roundDAO.enterfield();
+		
+		model.addAttribute("round3DTO", round3DTO);
+		model.addAttribute("competition",competition);
+		model.addAttribute("enterfield",enterfield);	
+		
+		return "admin.adminroundpoint.admin3roundpointupdate";
+	}
+	
+	@RequestMapping("admin3roundpointupdatee.do")
+	public String admin3roundpointupdatee(Round3DTO round3DTO, int mcn_no, int ent_enter)throws Exception{
+	
+		System.out.println("결승점수 수정실행");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		int result = roundDAO.admin3roundpointupdate(round3DTO);
+		
+		if(result ==  1){
+			System.out.println("점수 수정실행");
+		}else{
+			System.out.println("점수 수정 실패");
+		}
+		
+		return "redirect:admin3roundpointupdate.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
 	}
 	
 }

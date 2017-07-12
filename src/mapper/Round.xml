@@ -138,4 +138,57 @@
 		order by ent_birthday desc
 	</select>
 	
+	<update id="admin2roundpointupdatee">
+		update mmso_2round
+			set
+				m2_1roundpoint = #{m2_1roundpoint},
+				m2_2roundpoint = #{m2_2roundpoint},
+				m2_3roundpoint = #{m2_3roundpoint},
+				m2_4roundpoint = #{m2_4roundpoint},
+				m2_1time = #{m2_1time},
+				m2_2time = #{m2_2time},
+				m2_3time = #{m2_3time},
+				m2_4time = #{m2_4time}
+			where m2_idx = #{m2_idx}
+	</update>
+	
+	<insert id="admin2roundpointinsert">
+		insert into mmso_2round (b_idx, m2_name, m2_enter, m2_cname, m2_1roundpoint, m2_2roundpoint, m2_3roundpoint, m2_4roundpoint, m2_1time, m2_2time, m2_3time, m2_4time, m2_round_ck, ent_idx, m2_memberno, m2_active, mcn_no)
+		values(#{b_idx},#{m2_name},#{m2_enter},#{m2_cname},#{m2_1roundpoint},#{m2_2roundpoint},#{m2_3roundpoint},#{m2_4roundpoint},#{m2_1time},#{m2_2time},#{m2_3time},#{m2_4time},2,#{ent_idx},#{m2_memberno},0,#{mcn_no})
+	</insert>
+	
+	<update id="admin2roundck">
+		update mmso_2round
+			set
+				m2_round_ck = 3
+			where m2_idx = #{m2_idx}
+	</update>
+	
+	<select id="round3pointlist" resultType="DTO.Round3DTO">
+		select A.* 
+		from (
+			    SELECT
+			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
+			        ent.*, m3_1roundtime, m3_1roundpoint, m3_2roundpoint, m3_idx
+			    FROM
+			        mmso_enter_test ent, mmso_3round m3,
+			       (SELECT @ROWNUM := 0) R
+					where ent_active = 0 and
+					ent.ent_idx = m3.ent_idx and
+					ent.mcn_no = ${param1} and
+					m3.m3_enter = ${param2}
+			) A
+		order by ent_birthday desc
+	</select>
+	
+	<update id="admin3roundpointupdate">
+		update mmso_3round
+			set
+				m3_1roundtime = #{m3_1roundtime},
+				m3_1roundpoint = #{m3_1roundpoint},
+				m3_2roundpoint = #{m3_2roundpoint}
+			where m3_idx = #{m3_idx}
+				
+	</update>
+	
 </mapper>
