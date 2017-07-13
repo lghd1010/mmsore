@@ -11,14 +11,15 @@
 	    </ol>
 
     	<!-- Wrapper for slides -->
-	    <div class="carousel-inner">
-	     <div class="item active">
-		    <img src="img/ol_main_roll2.jpg" alt="Chicago" style="width:100%;">
+	     <div class="carousel-inner">
+	      <div class="item active">
+		          <img src="img/web1111.jpg" alt="Chicago" style="width:100%;">
 	      </div>
 	
 	      <div class="item">
-	        <img src="img/OP_main_renew20172.jpg" alt="Los Angeles" style="width:100%;">
+	        <a href="http://mmso.co.kr/noticeDetail.do?bno=71"><img src="img/OP_main_renew20173.jpg" alt="Los Angeles" style="width:100%;"></a>
 	      </div>
+	    </div>
 	
 	    <!-- Left and right controls -->
 	    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -30,9 +31,8 @@
 	      <span class="sr-only">Next</span>
 	    </a>
 	  </div>
-  </div>
   <div >
-  	<a href="round1pass.do" class="btn btn-info" style="width:100%;height: 55px;padding-top: 15px;">본선진출 확인하기</a>
+  	<a href="round2pass.do" class="btn btn-warning" style="width:100%;height: 55px;padding-top: 15px;margin-top:5px;">본선점수 확인하기</a>
   </div>
   <div class="content">
   	<div class="row" style="margin-bottom: 15px">
@@ -131,3 +131,59 @@
 	</div>
   </div>
 </div>
+<style type="text/css">
+	
+	#pop{
+		width:700px; height:400px; background:white; color:#fff; 
+		position:absolute; text-align:center; 
+		border:2px solid #000;
+			}
+	
+	#pop_02{
+		width:655px; height:970px; background:#3d3d3d; color:#fff; 
+		position:absolute; top:70px; left:100px; text-align:center; 
+		border:2px solid #000;
+			}
+
+	.close div{float:left; text-align:right;}
+	#check{font-size:12px; font-family:'돋움'; padding-left:70px;}
+	#close{font-size:13px; padding:5px; font-weight:bold;}
+
+</style>
+<div id="pop_02">
+	<div style="height: 940px;;">
+		<img id="img" src="img/asd.jpg" style="width:650px">
+	</div>
+	
+	<div class="close2">
+		<form name="pop_form">
+		<div id="close2" style="width: 650px; margin:auto;" class="btn btn-info">close</div>
+		</form>
+	</div>
+</div>
+
+<script>
+		cookiedata = document.cookie;    
+		if ( cookiedata.indexOf("maindiv=done") < 0 ){      
+			document.all['pop_02'].style.visibility = "visible";
+			} 
+			else {
+				document.all['pop_02'].style.visibility = "hidden"; 
+		}
+</script>
+
+<script>
+			$(document).ready(function() {
+				$('#close').click(function() {
+					$('#pop').hide();
+				});
+			});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+				$('#close2').click(function() {
+					$('#pop_02').hide();
+				});
+			});
+	</script>

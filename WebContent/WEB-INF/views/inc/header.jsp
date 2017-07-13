@@ -32,7 +32,7 @@
 						<li><a href='goal.do'>대회 목표</a>
 						<li><a href='effect.do'>대회 효과</a></li>
 					</ul>
-				<li><a href='noticeList.do'>명예전당</a>
+				<li><a href='winnerK.do'>명예전당</a>
 					<ul>
 						<li><a href='winnerK.do'>국내대회수상자</a>
 						<li><a href='refereewinner.do'>우수심판</a>
@@ -44,7 +44,7 @@
 						<!-- <li><a href='javascript:btn_board()'>게시판</a> -->
 						<li><a href='photolist.do'>사진첩</a> 
 						<%-- <c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}"> --%>
-						<li><a href='enterlist.do'>대회 신청하기</a>
+						<!-- <li><a href='enterlist.do?mcn_no=15'>대회 신청하기</a> -->
 						</li>
 						<%-- </c:if> --%>
 					</ul></li>
@@ -72,13 +72,12 @@
 						</ul>
 					</li>
 				</c:if> --%>
-				<%-- <c:if test="${memberInfo.m_type==5}"> --%>
+				<c:if test="${memberInfo.m_type==5}">
 				<li><a href='#'>관리자메뉴</a>
 					<ul>
 						<li class='has-sub'><a href='adminmemberlist.do'>회원관리</a>
 							<ul>
 								<li><a href='adminmemberlist.do'>회원목록</a></li>
-								<li><a href='admincamplist.do'>캠프참가자확인</a></li>
 							</ul>
 						</li>
 						<li class='has-sub'><a href='#'>대회관리</a>
@@ -104,7 +103,7 @@
 						</li>
 					</ul>
 				</li>
-				<%-- </c:if> --%>
+				</c:if>
 				<div align="right">
 					<c:choose>
 						<c:when test="${empty memberInfo}">
@@ -119,10 +118,6 @@
 							</a>
 						</c:when>
 						<c:otherwise>
-							<c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}">
-							<a type="button" href="roundck.do" class="btn btn-warning" style="margin-right: 10px; margin-top: 10px">본선참가확인</a>
-							<a type="button" href="entercomlist.do?memberno=${memberInfo.memberno }" class="btn btn-warning" style="margin-right: 10px; margin-top: 10px"><span class="glyphicon glyphicon-user"></span>대회신청</a>
-							</c:if>
 							<a type="button" href="memberdetail.do?mno=${memberInfo.memberno }" class="btn btn-warning" id="myBtn" style="margin-right: 10px; margin-top: 10px"> 
 							<span class="glyphicon glyphicon-user"></span>
 							 ${memberInfo.name } 

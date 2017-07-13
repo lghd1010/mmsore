@@ -142,6 +142,56 @@ public class BoardController {
 		return "home.photo.photolist";
 	}
 	
+	@RequestMapping(value = "photoWriteFrom.do", method = RequestMethod.GET)
+	public String photodWrite() throws Exception {
+
+		System.out.println("사진글 등록 하로 가보자");
+
+		return "home.photo.photoWriteFrom";
+	}
+	
+	@RequestMapping(value = "photoWrite.do", method = RequestMethod.POST)
+	public void photoWrite(PhotoDTO photoDTO, HttpServletResponse response)
+			throws Exception {
+
+		System.out.println("사진아 만들어져라");
+
+		// 경고문 띄우기 전 한글 처리
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+
+		int row1 = photoDTO.getContent().indexOf("src=\"");
+		int row2 = photoDTO.getContent().indexOf("\"", row1 + 5);
+		String mainImg = "";
+		if (row1 < row2) {
+			mainImg = photoDTO.getContent().substring(row1 + 5, row2);
+		} else {
+			mainImg = "/images/common/no_img.gif";
+		}
+
+		photoDTO.setUploadfile(mainImg);
+
+		// 사진 사이즈 조정
+		photoDTO.setContent(photoDTO
+				.getContent()
+				.replaceAll("<img",
+						"<img style=\"max-width:100% !important;=&quot;&quot; height:auto;\" "));
+
+		// 글 등록 진행
+		PhotoDAO photoDAO = sqlSession.getMapper(PhotoDAO.class);
+		int result = photoDAO.insert(photoDTO);
+
+		if (result != 0) {
+			System.out.println("사진게시판 글쓰기 완료");
+			out.print("<script type='text/javascript'>alert('글이 성공적으로 등록되었습니다.'); location.replace('photolist.do');</script>");
+		} else {
+			System.out.println("사진게시판 글쓰기 등록 실패");
+			out.print("<script type='text/javascript'>alert('글을 등록하는데 실패하였습니다.'); location.replace('photolist.do');</script>");
+		}
+		out.close();
+
+	}
+	
 	@RequestMapping("photodetail.do")
 	public String photodetail(@RequestParam("bno") int boardno, //게시글번호
 			HttpSession session, Model model) throws Exception {
@@ -165,6 +215,8 @@ public class BoardController {
 		
 		return "home.photo.photodetail";
 	}
+	
+	
 	
 	
 }

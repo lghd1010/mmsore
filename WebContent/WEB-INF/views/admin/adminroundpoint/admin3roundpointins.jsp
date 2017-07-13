@@ -32,6 +32,7 @@
 				</div>
 			</c:forEach>
 		</div>
+		
 		<table class="table table-bordered table-hover table-condensed">
 			<thead align="center">
 				<tr>
@@ -46,6 +47,7 @@
 			</thead>
 			<tbody align="center">
 				<c:forEach items="${enterDTO3 }" var="enterDTO3">
+				<form action="admin3roundpointinsert.do" id="frm" name="frm" method="post">
 					<tr>
 						<td><input type="hidden" id="m3_name" name="m3_name" value="${enterDTO3.m2_name }">${enterDTO3.m2_name }</td>
 						<td><input type="hidden" id="m_birthday" name="m_birthday" value="${enterDTO2.m_birthday }">${enterDTO3.m_birthday }</td>
@@ -77,9 +79,15 @@
 						</td>
 						<td>
 							<input type="text" id="m3_2roundpoint" name="m2_3roundpoint" style="width: 50px">
+							<input type="hidden" id="b_idx" name="b_idx" value="${enterDTO3.b_idx }">
+							<input type="hidden" id="ent_idx" name="ent_idx" value="${enterDTO3.ent_idx }">
+							<input type="hidden" id="m3_memberno" name="m3_memberno" value="${enterDTO3.m2_memberno }">
+							<input type="hidden" id="mcn_no" name="mcn_no" value="${enterDTO3.mcn_no }">
+							<input type="hidden" id="ent_enter" name="ent_enter" value="${enterDTO3.m2_enter }">
 						</td>
 						<td><input type="submit" class="btn btn-info btn-xs" value="등록"></td>
 					</tr>
+				</form>
 				</c:forEach>
 			</tbody>	
 		</table>

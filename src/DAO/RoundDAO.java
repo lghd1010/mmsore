@@ -38,6 +38,8 @@ public interface RoundDAO {
 	public List<Round3DTO> round3pointlist(int mcn_no, int ent_enter)throws Exception;
 
 	public int admin3roundpointupdate(Round3DTO round3dto)throws Exception;
+
+	public int admin3roundpointinsert(Round3DTO round3dto)throws Exception;
 	
 	
 

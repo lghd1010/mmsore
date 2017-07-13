@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="DAO.PassDAO">
+    	
+    	 <select id="round1passcheck" resultType="DTO.EnterDTO">
+	    	select * from mmso_enter_test ent, mmso_1round m1
+			where ent.ent_idx = m1.ent_idx and
+			${param1} like '%${param2}%' and
+			${param3} like '%${param4}%' and
+			${param5} like '%${param6}%' and
+			${param7} like '%${param8}%' 
+	    </select>
+	    
+	    <select id="round2passcheck" resultType="DTO.EnterDTO">
+	    	select * from mmso_enter_test ent, mmso_2round m1
+			where ent.ent_idx = m1.ent_idx and
+			${param1} like '%${param2}%' and
+			${param3} like '%${param4}%' and
+			${param5} like '%${param6}%' and
+			${param7} like '%${param8}%' 
+	    </select>
+	    
+	    <select id="round3result" resultType="DTO.EnterDTO">
+	    	select * from mmso_enter_test ent, mmso_3round m1
+			where ent.ent_idx = m1.ent_idx and
+			${param1} like '%${param2}%' and
+			${param3} like '%${param4}%' and
+			${param5} like '%${param6}%' and
+			${param7} like '%${param8}%' 
+	    </select>
+    	
+    </mapper>

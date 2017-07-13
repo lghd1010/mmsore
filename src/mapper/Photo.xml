@@ -28,4 +28,9 @@
 		where boardno = #{boardno}
 	</select>
 	
+	<insert id="insert" parameterType="DTO.PhotoDTO">
+		insert into mmso_photo(memberno, title, name, countno, content, regdate, categoryno, uploadfile, active)
+		values(#{memberno}, #{title}, #{name},0, #{content}, SYSDATE(), 3, #{uploadfile}, 0)
+	</insert>
+	
 </mapper>

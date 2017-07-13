@@ -15,4 +15,6 @@ public interface PhotoDAO {
 
 	public PhotoDTO photodtaile(int boardno);
 
+	public int insert(PhotoDTO photoDTO)throws Exception;
+
 }

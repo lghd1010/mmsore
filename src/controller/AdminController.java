@@ -520,6 +520,24 @@ public class AdminController {
 		return "admin.adminroundpoint.admin3roundpointins";
 	}
 	
+	@RequestMapping(value="admin3roundpointinsert", method=RequestMethod.POST)
+	public String admin3roundpointinsert(Round3DTO round3DTO, int mcn_no, int ent_enter) throws Exception{
+		
+		System.out.println("점수 등록");
+		
+		RoundDAO roundDAO = sqlSession.getMapper(RoundDAO.class);
+		
+		int result = roundDAO.admin3roundpointinsert(round3DTO);
+		
+		if(result != 0){
+			System.out.println("등록완료");
+		}else{
+			System.out.println("ㄴㄴ");
+		}
+		
+		return "redirect:admin3roundpointins.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
+	}
+	
 	@RequestMapping("admin3roundpointupdate.do")
 	public String admin3roundpointupdate(Model model, int mcn_no, int ent_enter)throws Exception{
 		

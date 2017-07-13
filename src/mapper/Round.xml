@@ -191,4 +191,9 @@
 				
 	</update>
 	
+	<insert id="admin3roundpointinsert">
+		insert mmso_3round(b_idx, m3_enter, m3_name, m3_cname, m3_1roundtime, m3_1roundpoint, m3_2roundpoint, ent_idx, m3_memberno, m3_active, mcn_no)
+		values(#{b_idx}, #{m3_enter}, #{m3_name}, #{m3_cname}, #{m3_1roundtime}, #{m3_1roundpoint}, #{m3_2roundpoint}, #{ent_idx}, #{m3_memberno}, 0, #{mcn_no})
+	</insert>
+	
 </mapper>

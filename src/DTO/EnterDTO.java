@@ -37,6 +37,15 @@ public class EnterDTO {
 	private String mcn_no;
 	private int ROWNUM;
 	private int b_idx;
+	private int m2_1roundpoint, m2_2roundpoint, m2_3roundpoint, m2_4roundpoint;
+	private String m2_1time;
+	private String m2_2time;
+	private String m2_3time;
+	private String m2_4time;
+	private int m2_round_ck;
+	private int m3_enter;
+	private int m3_1roundpoint, m3_2roundpoint;
+	private String m3_1roundtime;
 	
 	private int mef_idx;
 	private String mef_name;
@@ -292,6 +301,84 @@ public class EnterDTO {
 	}
 	public void setB_idx(int b_idx) {
 		this.b_idx = b_idx;
+	}
+	public int getM2_1roundpoint() {
+		return m2_1roundpoint;
+	}
+	public void setM2_1roundpoint(int m2_1roundpoint) {
+		this.m2_1roundpoint = m2_1roundpoint;
+	}
+	public int getM2_2roundpoint() {
+		return m2_2roundpoint;
+	}
+	public void setM2_2roundpoint(int m2_2roundpoint) {
+		this.m2_2roundpoint = m2_2roundpoint;
+	}
+	public int getM2_3roundpoint() {
+		return m2_3roundpoint;
+	}
+	public void setM2_3roundpoint(int m2_3roundpoint) {
+		this.m2_3roundpoint = m2_3roundpoint;
+	}
+	public int getM2_4roundpoint() {
+		return m2_4roundpoint;
+	}
+	public void setM2_4roundpoint(int m2_4roundpoint) {
+		this.m2_4roundpoint = m2_4roundpoint;
+	}
+	public String getM2_1time() {
+		return m2_1time;
+	}
+	public void setM2_1time(String m2_1time) {
+		this.m2_1time = m2_1time;
+	}
+	public String getM2_2time() {
+		return m2_2time;
+	}
+	public void setM2_2time(String m2_2time) {
+		this.m2_2time = m2_2time;
+	}
+	public String getM2_3time() {
+		return m2_3time;
+	}
+	public void setM2_3time(String m2_3time) {
+		this.m2_3time = m2_3time;
+	}
+	public String getM2_4time() {
+		return m2_4time;
+	}
+	public void setM2_4time(String m2_4time) {
+		this.m2_4time = m2_4time;
+	}
+	public int getM2_round_ck() {
+		return m2_round_ck;
+	}
+	public void setM2_round_ck(int m2_round_ck) {
+		this.m2_round_ck = m2_round_ck;
+	}
+	public int getM3_enter() {
+		return m3_enter;
+	}
+	public void setM3_enter(int m3_enter) {
+		this.m3_enter = m3_enter;
+	}
+	public int getM3_1roundpoint() {
+		return m3_1roundpoint;
+	}
+	public void setM3_1roundpoint(int m3_1roundpoint) {
+		this.m3_1roundpoint = m3_1roundpoint;
+	}
+	public int getM3_2roundpoint() {
+		return m3_2roundpoint;
+	}
+	public void setM3_2roundpoint(int m3_2roundpoint) {
+		this.m3_2roundpoint = m3_2roundpoint;
+	}
+	public String getM3_1roundtime() {
+		return m3_1roundtime;
+	}
+	public void setM3_1roundtime(String m3_1roundtime) {
+		this.m3_1roundtime = m3_1roundtime;
 	}
 	
 	

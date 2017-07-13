@@ -13,5 +13,7 @@ public interface EnterDAO {
 	public List<EnterDTO> admin1roundlist(int mcn_no, int ent_enter)throws Exception;
 
 	public int round1pointinsert2(Round1DTO round1DTO)throws Exception;
+
+	public List<EnterDTO> enterlist()throws Exception;
 	
 }

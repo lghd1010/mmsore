@@ -7,7 +7,10 @@
 		where mcn_no = ${param1} and ent_enter=${param2} and ent_active = 0
 	</select>
 	
-	
+	<select id="enterlist" resultType="DTO.EnterDTO">
+		select * from mmso_enter_test
+		where memberno = #{memberno}
+	</select>
 	
 	<select id="admin1roundlist" resultType="DTO.EnterDTO">
 		select A.* 
