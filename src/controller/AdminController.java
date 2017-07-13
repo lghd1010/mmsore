@@ -90,6 +90,22 @@ public class AdminController {
 		return "admin.adminroundlist.admin1roundlist";
 	}
 	
+	@RequestMapping("admin1roundactive.do")
+	public String admin1roundactive(EnterDTO enterDTO, int mcn_no, int ent_enter)throws Exception{
+		
+		System.out.println("예선전취소");
+		
+		EnterDAO enterDAO = sqlSession.getMapper(EnterDAO.class);
+		int result = enterDAO.acmin1roundactive(enterDTO);
+		
+		if(result == 1){
+			System.out.println("완료");
+		}else{
+			System.out.println("실패");
+		}
+		return "redirect:admin1roundlist.do?mcn_no="+mcn_no+"&ent_enter="+ent_enter;
+	}
+	
 	@RequestMapping("admin2roundlist.do")
 	public String admin2roundlist(Model model, int mcn_no, int ent_enter)throws Exception{
 		

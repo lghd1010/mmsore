@@ -18,6 +18,7 @@ public class Round3DTO {
 	private String ent_name;
 	private String ent_birthday;
 	private String ent_cname;
+	private int pointsum;
 	
 	public int getM3_idx() {
 		return m3_idx;
@@ -114,6 +115,12 @@ public class Round3DTO {
 	}
 	public void setEnt_cname(String ent_cname) {
 		this.ent_cname = ent_cname;
+	}
+	public int getPointsum() {
+		return pointsum;
+	}
+	public void setPointsum(int pointsum) {
+		this.pointsum = pointsum;
 	}
 	
 	

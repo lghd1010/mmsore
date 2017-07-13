@@ -91,7 +91,8 @@
 		from (
 			    SELECT
 			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
-			        ent.* , m1_round_ck, m1_1roundpoint, m1_2roundpoint, m1_3roundpoint, m1_4roundpoint,  m1_1roundtime, m1_2roundtime, m1_3roundtime, m1_4roundtime, m1_idx
+			        ent.* , m1_round_ck, m1_1roundpoint, m1_2roundpoint, m1_3roundpoint, m1_4roundpoint,  m1_1roundtime, m1_2roundtime, m1_3roundtime, m1_4roundtime, m1_idx,
+			        sum(m1_1roundpoint+m1_2roundpoint+m1_3roundpoint+m1_4roundpoint) as pointsum
 			    FROM
 			        mmso_enter_test ent, mmso_1round m1, 
 			       (SELECT @ROWNUM := 0) R
@@ -99,8 +100,9 @@
 					ent.ent_idx = m1.ent_idx and
 					ent.mcn_no = ${param1} and
 					ent.ent_enter = ${param2}
+					group by m1_idx
 			) A
-		order by ent_birthday desc
+		order by pointsum desc
 	</select>
 	
 	<update id="admin1roundpointlistck">
@@ -126,7 +128,8 @@
 			    SELECT
 			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
 			        ent.* , m2_round_ck, m2_1roundpoint, m2_2roundpoint, m2_3roundpoint, m2_4roundpoint, 
-              m2_1time, m2_2time, m2_3time, m2_4time, m2_idx
+              m2_1time, m2_2time, m2_3time, m2_4time, m2_idx,
+              sum(m2_1roundpoint+m2_2roundpoint+m2_3roundpoint+m2_4roundpoint) as pointsum
 			    FROM
 			        mmso_enter_test ent, mmso_2round m2,
 			       (SELECT @ROWNUM := 0) R
@@ -134,8 +137,9 @@
 					ent.ent_idx = m2.ent_idx and
 					ent.mcn_no = ${param1} and
 					m2.m2_enter = ${param2}
+					group by m2_idx
 			) A
-		order by ent_birthday desc
+		order by pointsum desc
 	</select>
 	
 	<update id="admin2roundpointupdatee">
@@ -169,7 +173,8 @@
 		from (
 			    SELECT
 			        @ROWNUM := @ROWNUM + 1 AS ROWNUM,
-			        ent.*, m3_1roundtime, m3_1roundpoint, m3_2roundpoint, m3_idx
+			        ent.*, m3_1roundtime, m3_1roundpoint, m3_2roundpoint, m3_idx,
+              sum(m3_1roundpoint+m3_2roundpoint) as pointsum
 			    FROM
 			        mmso_enter_test ent, mmso_3round m3,
 			       (SELECT @ROWNUM := 0) R
@@ -177,8 +182,9 @@
 					ent.ent_idx = m3.ent_idx and
 					ent.mcn_no = ${param1} and
 					m3.m3_enter = ${param2}
+					group by m3_idx
 			) A
-		order by ent_birthday desc
+		order by pointsum desc
 	</select>
 	
 	<update id="admin3roundpointupdate">

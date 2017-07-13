@@ -193,13 +193,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping("photodetail.do")
-	public String photodetail(@RequestParam("bno") int boardno, //게시글번호
-			HttpSession session, Model model) throws Exception {
+	public String photodetail(int boardno, Model model) throws Exception {
 		
-		//로그
-		System.out.println("게시판 상세");
 		
-		//게시판 정보 db에서 가져오기
 		System.out.println("게시판 정보 가져오기");
 		PhotoDAO photoDAO = sqlSession.getMapper(PhotoDAO.class);
 		//조회수

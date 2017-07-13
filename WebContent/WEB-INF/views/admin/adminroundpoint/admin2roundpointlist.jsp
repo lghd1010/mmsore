@@ -47,6 +47,7 @@
 						<td>두번째게임 점수</td>
 						<td>세번째게임 점수</td>
 						<td>네번째게임 점수</td>
+						<td>총점</td>
 						<td>본선참가버튼</td>
 					</tr>
 			</thead>
@@ -76,6 +77,7 @@
 						<td>${round2DTO.m2_2roundpoint }점</td>
 						<td>${round2DTO.m2_3roundpoint }점</td>
 						<td>${round2DTO.m2_4roundpoint }점</td>
+						<td>${round2DTO.pointsum }점</td>
 						<td>
 							<c:choose>
 								<c:when test="${round2DTO.m2_round_ck == 2}">

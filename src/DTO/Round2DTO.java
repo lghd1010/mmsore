@@ -26,6 +26,7 @@ public class Round2DTO {
 	private String m_birthday;
 	private String ent_name;
 	private String ent_cname;
+	private int pointsum;
 	
 	public int getM2_idx() {
 		return m2_idx;
@@ -188,6 +189,12 @@ public class Round2DTO {
 	}
 	public void setM2_4time(String m2_4time) {
 		this.m2_4time = m2_4time;
+	}
+	public int getPointsum() {
+		return pointsum;
+	}
+	public void setPointsum(int pointsum) {
+		this.pointsum = pointsum;
 	}
 	
 	

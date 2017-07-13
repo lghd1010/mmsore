@@ -80,6 +80,7 @@
 						<td>두번째게임</td>
 						<td>세번째게임</td>
 						<td>네번째게임</td>
+						<td>총점</td>
 						<td>본선참가버튼</td>
 					</tr>
 				</c:forEach>
@@ -110,6 +111,7 @@
 						<td>${round1DTO.m1_2roundpoint }점</td>
 						<td>${round1DTO.m1_3roundpoint }점</td>
 						<td>${round1DTO.m1_4roundpoint }점</td>
+						<td>${round1DTO.pointsum }점</td>
 						<td>
 							<c:choose>
 								<c:when test="${round1DTO.m1_round_ck == 1}">

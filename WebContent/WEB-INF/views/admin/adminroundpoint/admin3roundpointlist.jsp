@@ -45,6 +45,7 @@
 						<td>교육원</td>
 						<td>첫번째게임 점수</td>
 						<td>두번째게임 점수</td>
+						<td>총점</td>
 					</tr>
 			</thead>
 			<tbody>
@@ -71,6 +72,7 @@
 						<td>${round3DTO.ent_cname }</td>
 						<td>${round3DTO.m3_1roundpoint }점(${round3DTO.m3_1roundtime }초)</td>
 						<td>${round3DTO.m3_2roundpoint }점</td>
+						<td>${round3DTO.pointsum }점</td>
 					</tr>
 				</c:forEach>
 			</tbody>

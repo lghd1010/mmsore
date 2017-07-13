@@ -44,7 +44,7 @@
 						<!-- <li><a href='javascript:btn_board()'>게시판</a> -->
 						<li><a href='photolist.do'>사진첩</a> 
 						<%-- <c:if test="${memberInfo.m_type == 2 || memberInfo.m_type == 1}"> --%>
-						<!-- <li><a href='enterlist.do?mcn_no=15'>대회 신청하기</a> -->
+						<li><a href='enterlist.do?mcn_no=15'>대회 신청하기</a>
 						</li>
 						<%-- </c:if> --%>
 					</ul></li>

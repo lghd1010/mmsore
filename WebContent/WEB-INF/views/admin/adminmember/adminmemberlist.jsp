@@ -5,6 +5,18 @@
 	<div class="container">
 		<h2>회원정보</h2>
 		<div class="content">
+			<form action="adminmemberSearch.do" method="post">
+				<div class="Search" align="center" style="margin: 10px">
+					<select id="field" name="field">
+						<option value="name">이름</option>
+						<option value="m_cname">교육원이름</option>
+						<option value="m_birthday">생년월일</option>
+						<option value="m_id">아이디</option>
+					</select>
+					<input type="text" name="query"> 
+					<input class="btn btn-info btn-xs" type="submit" value="검색">
+				</div>
+			</form>
 			<table class="table table-bordered table-hover table-condensed">
 				<thead>
 					<tr>

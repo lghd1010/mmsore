@@ -15,5 +15,7 @@ public interface EnterDAO {
 	public int round1pointinsert2(Round1DTO round1DTO)throws Exception;
 
 	public List<EnterDTO> enterlist()throws Exception;
+
+	public int acmin1roundactive(EnterDTO enterDTO)throws Exception;
 	
 }

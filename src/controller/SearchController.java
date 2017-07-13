@@ -6,6 +6,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SearchController {
+	
+	@RequestMapping("adminmemberSearch.do")
+	public String adminmemberSearch(@RequestParam("field") String field, @RequestParam("query") String query)throws Exception{
+		String go = "";
+		
+		go = "redirect:adminmemberlist.do?f="+field+"&q="+ new String(query.getBytes("utf-8"), "iso-8859-1");
+		
+		return go;
+	}
 
 	@RequestMapping("round1passcheckSearch.do")
 	public String round1passcheckSearch(

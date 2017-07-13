@@ -25,21 +25,6 @@
 		<tr>
 			<td>${photoDTO.content}</td>
 		</tr>
-		<!--<tr>
-				<th class="active" colspan="1">첨부파일</th>
-			</tr>
-			<tr>
-				<c:choose>
-					<c:when test="${empty photoDTO.fname}">
-						<td colspen="">파일 없음</td>
-					</c:when>
-					<c:otherwise>
-						<td colspen=""><a
-							href="fileDownloadphoto.do?fname=${photoDTO.fname}">${photoDTO.fname}</a></td>
-					</c:otherwise>
-				</c:choose>
-
-			</tr>-->
 		<tr>
 			<td>
 				<div align="right">

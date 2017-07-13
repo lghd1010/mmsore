@@ -32,4 +32,11 @@
     	insert into mmso_1round (m1_name, m1_enter, m1_cname, m1_1roundpoint, m1_2roundpoint, m1_3roundpoint, m1_4roundpoint, m1_1roundtime, m1_2roundtime, m1_3roundtime, m1_4roundtime, ent_idx, m1_memberno, m1_active,  b_idx, m1_round_ck, mcn_no)
     	values (#{m1_name}, #{m1_enter}, #{m1_cname}, #{m1_1roundpoint}, #{m1_2roundpoint}, #{m1_3roundpoint}, #{m1_4roundpoint}, #{m1_1roundtime}, #{m1_2roundtime}, #{m1_3roundtime}, #{m1_4roundtime}, #{ent_idx}, #{m1_memberno}, 0, #{b_idx}, 1, #{mcn_no})
     </insert>
+    
+    <update id="acmin1roundactive">
+    	update mmso_enter_test
+    		set
+    			ent_active = 1
+    		where ent_idx = #{ent_idx}
+    </update>
 </mapper>

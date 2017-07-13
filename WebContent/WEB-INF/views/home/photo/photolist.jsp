@@ -18,7 +18,7 @@
 					<c:choose>
 						<c:when test="${fn:length(list.title) > 30}">
 							<div class="col-md-3">
-								<a href="photodetail.do?bno=${list.boardno}" class="thumbnail" style="width: auto; height: 100%">
+								<a href="photodetail.do?boardno=${list.boardno}" class="thumbnail" style="width: auto; height: 100%">
 								<img src="${list.uploadfile}" alt="" style="width: auto; height: 150px">
 								<c:out value="${fn:substring(list.title,0,29)}"/>....
 								</a>
@@ -26,7 +26,7 @@
 						</c:when>
 						<c:otherwise>
 							<div class="col-md-3">
-								<a href="photodetail.do?bno=${list.boardno}" class="thumbnail"
+								<a href="photodetail.do?boardno=${list.boardno}" class="thumbnail"
 									style="width: auto; height: 100%"><img
 									src="${list.uploadfile}" alt=""
 									style="width: auto; height: 150px">

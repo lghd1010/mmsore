@@ -46,6 +46,7 @@
 							<td>교육원</td>
 							<td>참가대회횟차</td>
 							<td>참가대회</td>
+							<td>취소</td>
 						</tr>
 					</thead>
 				<tbody align="center">
@@ -71,7 +72,7 @@
 							<td>${enterDTO.ent_cname }</td>
 							<td>${enterDTO.mcn_no }</td>
 							<td>${enterDTO.ma_comname }</td>
-							
+							<td><a href="admin1roundactive.do?mcn_no=${enterDTO.mcn_no }&ent_enter=${enterDTO.ent_enter}&ent_idx=${enterDTO.ent_idx}" class="btn btn-danger btn-xs">취소</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
