@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import DAO.AddDAO;
 import DAO.EnterDAO;
@@ -41,6 +42,16 @@ public class EnterController {
 		model.addAttribute("competition",competition);
 		
 		return "home.enter.enterlist";
+	}
+	
+	@RequestMapping(value="enter.do", method=RequestMethod.GET)
+	public String enter ()throws Exception{
+		
+		System.out.println("참가양식나와라");
+		
+		
+		
+		return "home.enter.enter";
 	}
 	
 }

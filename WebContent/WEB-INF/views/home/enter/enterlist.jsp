@@ -42,7 +42,7 @@
 							<td>${addDTO.ma_complace }</td>
 							<td>${addDTO.ma_comprice }원</td>
 							<td><fmt:formatDate var="nowDate" value="<%=CurrentDate%>" pattern="yyyy-MM-dd" /> 
-								<c:choose>
+								<%-- <c:choose>
 									<c:when test="${addDTO.ma_receipt_end < nowDate }">
 										<button type="submit" class="btn btn-danger btn-xs"
 											disabled="disabled">마감</button>
@@ -51,11 +51,10 @@
 										<button type="submit" class="btn btn-defulte btn-xs"
 											disabled="disabled">대기</button>
 									</c:when>
-									<c:otherwise> 
-										<a href="enterFrom.do?mamano=${entercomlist.ma_idx }"
-											class="btn btn-info btn-xs">신청</a>
-									</c:otherwise>
-								</c:choose>
+									<c:otherwise>  --%>
+										<a href="enter.do" class="btn btn-info btn-xs">신청</a>
+									<%--</c:otherwise>
+								</c:choose> --%>
 							</td>
 						</tr>
 					</c:forEach>
